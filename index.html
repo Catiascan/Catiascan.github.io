@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cátia Scandola — FSA e S.E.A.</title>
+<style>
+  :root{
+    --azul:#020084; --azul-sinapse:#2E2EE6; --amarelo:#FFDE59;
+    --mel:#8A6D00; --nevoa:#EDEFF7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--azul); color:#fff; min-height:100vh;
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    display:flex; justify-content:center; padding:48px 20px;
+  }
+  .wrap{width:100%; max-width:420px; text-align:center}
+  .marca{
+    width:64px;height:64px;margin:0 auto 20px;border-radius:16px;
+    border:2px solid rgba(255,255,255,.35);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;font-weight:700;letter-spacing:1px;color:var(--amarelo);
+  }
+  h1{font-size:22px;font-weight:600;letter-spacing:.2px}
+  .sub{
+    margin-top:8px;font-size:13px;line-height:1.5;color:var(--nevoa);opacity:.85;
+    font-family:ui-monospace,"Consolas",monospace;
+  }
+  .links{margin-top:34px;display:flex;flex-direction:column;gap:14px}
+  a.btn{
+    display:block;padding:18px 20px;border-radius:14px;text-decoration:none;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+    color:#fff;transition:transform .15s ease,background .15s ease;
+  }
+  a.btn:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+  a.btn .t{display:block;font-size:16px;font-weight:600}
+  a.btn .d{display:block;margin-top:5px;font-size:12.5px;color:var(--nevoa);opacity:.8}
+  a.destaque{background:var(--amarelo);border-color:var(--amarelo);color:#1a1500}
+  a.destaque .d{color:var(--mel);opacity:1}
+  a.destaque:hover{background:#ffe57a}
+  footer{margin-top:40px;font-size:11.5px;color:var(--nevoa);opacity:.55;
+    font-family:ui-monospace,"Consolas",monospace}
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="marca">CS</div>
+    <h1>Cátia Scandola</h1>
+    <p class="sub">FSA Soluções em Tecnologia · S.E.A.<br>Tecnologia que tira a empresa do improviso</p>
+
+    <nav class="links">
+      <a class="btn destaque" href="https://wa.me/551233519958">
+        <span class="t">Falar com a FSA no WhatsApp</span>
+        <span class="d">Diagnóstico de Maturidade Digital — 30 a 45 min</span>
+      </a>
+      <a class="btn" href="https://sea-academy.com.br">
+        <span class="t">Site da S.E.A.</span>
+        <span class="d">Startups Expert Academy — testar a ideia antes de embarcar</span>
+      </a>
+      <a class="btn" href="https://chat.whatsapp.com/E9ruxq96HfBB6ZuCbnHnrN">
+        <span class="t">Grupo Bússola S.E.A.</span>
+        <span class="d">Comunidade no WhatsApp</span>
+      </a>
+    </nav>
+
+    <footer>FSA Soluções em Tecnologia · Taubaté / Vale do Paraíba</footer>
+  </main>
+</body>
+</html>
