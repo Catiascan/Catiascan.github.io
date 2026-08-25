@@ -51,8 +51,14 @@ além das cinco linhas iniciais.
 1. Criar o doc FSA — ESTADO no Drive, preencher 5 linhas    (15 min, uma vez)
 2. Criar o projeto JARVIS no Cowork com 00-JARVIS.md        (5 min)
 3. Testar: "roda o boletim agora"                           (tem que ser rápido)
-4. Ligar a Rotina diária 07:00                              (5 min)
+4. Ligar a Rotina diária 07:00 em claude.ai → Rotinas        (5 min)
 ```
+
+O passo 4 tem que ser feito em **claude.ai → Rotinas** ou em **Cowork Desktop →
+Rotinas**. São os únicos lugares que passam os seus conectores (Drive, Gmail,
+Agenda, Notion) para a sessão da manhã. Rotina armada a partir de uma sessão do
+Claude Code é criada, mas acorda sem conector e o boletim sai vazio — testado e
+descartado.
 
 Esses quatro dão o acompanhamento de CEO funcionando. A fábrica de software
 (`03`) e o fecho semanal podem esperar uma semana — o painel precisa de alguns

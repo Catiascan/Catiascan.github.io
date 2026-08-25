@@ -4,10 +4,20 @@ Este é o texto que vai **na Rotina agendada**, não num projeto. Rotina roda se
 você abrir nada, então o prompt precisa ser autossuficiente: escreva como se
 quem lê nunca tivesse falado com você.
 
-Onde ligar:
-- **Cowork Desktop:** menu esquerdo → Rotinas → nova → colar → 07:00, dias úteis.
-- **Terminal / Claude Code:** `/loop` ou uma rotina agendada com este mesmo texto.
-- **Aqui na web:** peça "agenda isso todo dia útil às 7h" que eu armo.
+## Onde ligar — e por que o lugar importa
+
+A rotina precisa dos seus conectores (Drive, Gmail, Agenda, Notion). Sem eles
+ela acorda cega e escreve "não consegui ler nada". Só estes dois lugares
+carregam os conectores:
+
+- **claude.ai → Rotinas** (recomendado): roda na nuvem, com o computador
+  desligado, e herda os conectores da sua conta. Nova rotina → colar o prompt
+  abaixo → 07:00 → seg a sex.
+- **Cowork Desktop → Rotinas:** mesma coisa, mas só roda com o Cowork aberto.
+
+**Não funciona:** pedir a uma sessão do Claude Code (terminal ou web) para armar
+a rotina. Testado — a rotina é criada, mas nesta organização ela não recebe os
+conectores, e o boletim sai vazio todo dia.
 
 ---
 
