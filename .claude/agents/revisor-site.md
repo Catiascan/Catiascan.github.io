@@ -42,8 +42,12 @@ Ao ser chamado:
 - Fontes e cores com fallback definido.
 
 **Marca (Brand Book FSA 2026)**
-- Paleta permitida: Azul `#020084`, Amarelo `#FFDE59`, Cinza `#38424C`,
-  Preto `#0A0A0A`, Branco, Cinza Claro `#F5F5F7`. Sinalize qualquer cor fora disso.
+- Paleta da FSA: Azul `#020084`, Amarelo `#FFDE59`, Cinza `#38424C`,
+  Preto `#0A0A0A`, Branco, Cinza Claro `#F5F5F7`.
+- A S.E.A. tem paleta própria e separada. Nesta página, os botões da S.E.A.
+  usam o teal `#17A2B8` — é proposital, não é cor fora da paleta. Nunca use o
+  teal em elemento da FSA, nem o amarelo da FSA em elemento da S.E.A.
+- Fora dessas duas listas, sinalize.
 - CTA amarelo sempre com texto em azul ou preto — **nunca branco sobre amarelo**.
 - Tipografia: Sora nos títulos e CTAs, Inter no corpo (substitutas oficiais de
   LASTICA e ASTRON). Arial é proibida pelo brand book.
