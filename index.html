@@ -3,11 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cátia Scandola — FSA e S.E.A.</title>
+<title>Cátia Scandola — FSA Soluções em Tecnologia e S.E.A.</title>
+<meta name="description" content="Cátia Scandola — FSA Soluções em Tecnologia e S.E.A. Diagnóstico de Maturidade Digital para empresas do Vale do Paraíba, em 30 a 45 minutos.">
+<link rel="canonical" href="https://catiascan.github.io/">
+<meta name="theme-color" content="#020084">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cátia Scandola — FSA e S.E.A.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://catiascan.github.io/">
+<meta property="og:title" content="Cátia Scandola — FSA Soluções em Tecnologia e S.E.A.">
+<meta property="og:description" content="Tecnologia que tira a empresa do improviso. Diagnóstico de Maturidade Digital para empresas do Vale do Paraíba, em 30 a 45 minutos.">
+<meta property="og:image" content="https://catiascan.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cátia Scandola — FSA Soluções em Tecnologia e S.E.A.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cátia Scandola — FSA Soluções em Tecnologia e S.E.A.">
+<meta name="twitter:description" content="Tecnologia que tira a empresa do improviso. Diagnóstico de Maturidade Digital para empresas do Vale do Paraíba, em 30 a 45 minutos.">
+<meta name="twitter:image" content="https://catiascan.github.io/og-image.png">
 <style>
   :root{
     --azul:#020084; --azul-sinapse:#2E2EE6; --amarelo:#FFDE59;
-    --mel:#8A6D00; --nevoa:#EDEFF7;
+    --cinza:#38424C; --nevoa:#EDEFF7;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   body{
@@ -34,12 +55,15 @@
     color:#fff;transition:transform .15s ease,background .15s ease;
   }
   a.btn:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+  a.btn:focus-visible{outline:3px solid var(--amarelo);outline-offset:3px}
+  a.destaque:focus-visible{outline:3px solid #fff;outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){a.btn{transition:none}a.btn:hover{transform:none}}
   a.btn .t{display:block;font-size:16px;font-weight:600}
   a.btn .d{display:block;margin-top:5px;font-size:12.5px;color:var(--nevoa);opacity:.8}
-  a.destaque{background:var(--amarelo);border-color:var(--amarelo);color:#1a1500}
-  a.destaque .d{color:var(--mel);opacity:1}
+  a.destaque{background:var(--amarelo);border-color:var(--amarelo);color:var(--azul)}
+  a.destaque .d{color:var(--azul);opacity:1}
   a.destaque:hover{background:#ffe57a}
-  footer{margin-top:40px;font-size:11.5px;color:var(--nevoa);opacity:.55;
+  footer{margin-top:40px;font-size:11.5px;color:var(--nevoa);opacity:.75;
     font-family:ui-monospace,"Consolas",monospace}
 </style>
 </head>
@@ -50,15 +74,15 @@
     <p class="sub">FSA Soluções em Tecnologia · S.E.A.<br>Tecnologia que tira a empresa do improviso</p>
 
     <nav class="links">
-      <a class="btn destaque" href="https://wa.me/551233519958">
+      <a class="btn destaque" rel="noopener" href="https://wa.me/551233519958">
         <span class="t">Falar com a FSA no WhatsApp</span>
         <span class="d">Diagnóstico de Maturidade Digital — 30 a 45 min</span>
       </a>
-      <a class="btn" href="https://sea-academy.com.br">
+      <a class="btn" rel="noopener" href="https://sea-academy.com.br">
         <span class="t">Site da S.E.A.</span>
         <span class="d">Startups Expert Academy — testar a ideia antes de embarcar</span>
       </a>
-      <a class="btn" href="https://chat.whatsapp.com/E9ruxq96HfBB6ZuCbnHnrN">
+      <a class="btn" rel="noopener" href="https://chat.whatsapp.com/E9ruxq96HfBB6ZuCbnHnrN">
         <span class="t">Grupo Bússola S.E.A.</span>
         <span class="d">Comunidade no WhatsApp</span>
       </a>
@@ -66,5 +90,44 @@
 
     <footer>FSA Soluções em Tecnologia · Taubaté / Vale do Paraíba</footer>
   </main>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://catiascan.github.io/#catia",
+        "name": "Cátia Scandola",
+        "url": "https://catiascan.github.io/",
+        "worksFor": { "@id": "https://catiascan.github.io/#fsa" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://catiascan.github.io/#fsa",
+        "name": "FSA Soluções em Tecnologia",
+        "slogan": "Tecnologia que tira a empresa do improviso",
+        "url": "https://catiascan.github.io/",
+        "areaServed": [
+          { "@type": "City", "name": "Taubaté" },
+          { "@type": "AdministrativeArea", "name": "Vale do Paraíba" },
+          { "@type": "State", "name": "São Paulo" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Taubaté",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "url": "https://wa.me/551233519958",
+          "availableLanguage": "pt-BR"
+        }
+      }
+    ]
+  }
+  </script>
 </body>
 </html>
