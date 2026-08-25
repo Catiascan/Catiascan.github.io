@@ -1,35 +1,43 @@
 # Subagentes deste projeto
 
-Ficheiros Markdown com frontmatter YAML que o Claude Code lê a partir de
+Arquivos Markdown com um cabeçalho YAML, lidos pelo Claude Code na pasta
 `.claude/agents/`. Como estão versionados no repositório, valem sempre que se
 trabalha neste projeto — em qualquer máquina e também no Claude Code na web.
 
-| Agente | Para quê | Ferramentas | Escreve ficheiros? |
-|---|---|---|---|
-| `revisor-site` | HTML, CSS, responsividade, acessibilidade, links partidos | Read, Grep, Glob, Bash | Não |
-| `seo-tecnico` | Meta tags, Open Graph, JSON-LD, robots, sitemap | Read, Grep, Glob, Edit, WebFetch | Só quando pedido |
-| `copy-fsa` | Texto do site na voz da FSA e da S.E.A. | Read, Grep, Glob, Edit, Skill | Só quando pedido |
-| `conselho-fsa` | Perguntas de negócio, encaminhadas para a skill da área | Read, Grep, Glob, Skill, WebSearch, WebFetch | Não |
-| `status-para-iris` | Lê o andamento no git e escreve o status para a Iris, com os pontos que ela precisa validar | Read, Grep, Glob, Bash, Skill | Não |
+| Agente | Para quê | Escreve arquivo? |
+|---|---|---|
+| `revisor-site` | HTML, CSS, celular, acessibilidade, links quebrados e conformidade com o brand book | Não |
+| `seo-tecnico` | Meta tags, preview no WhatsApp, Google, dados estruturados, robots e sitemap | Só quando pedido |
+| `copy-fsa` | Texto do site na voz da FSA e da S.E.A. | Só quando pedido |
+| `conselho-fsa` | Pergunta de negócio, encaminhada para a skill da área certa | Não |
+| `status-para-iris` | Lê o andamento no git e escreve o status para a Iris, com os pontos que ela precisa validar | Não |
 
 ## Como usar
 
-Em linguagem natural, dizendo o nome:
+Falando o nome, em português normal:
 
 ```
 Usa o revisor-site para verificar a acessibilidade da página
 ```
 
-Ou garantindo o agente com @-menção:
+Ou garantindo o agente com @:
 
 ```
-@"seo-tecnico (agent)" o link está a ficar sem preview no WhatsApp
+@"seo-tecnico (agent)" o link está sem preview no WhatsApp
 ```
 
-## Como alterar
+## Como mudar um agente
 
-Editar o `.md` correspondente. O `description` é o que decide quando o Claude
-delega — quanto mais concreto ("usa quando pedirem X"), melhor o encaminhamento.
-O `tools` é uma lista de permissão: o que não estiver lá, o agente não faz.
+Edite o `.md` correspondente. O campo `description` é o que decide quando o
+Claude chama aquele agente — quanto mais concreto ("use quando pedirem X"),
+melhor. O campo `tools` é uma lista de permissão: o que não estiver ali, o
+agente não consegue fazer.
 
-Documentação: https://code.claude.com/docs/en/sub-agents
+## Marca
+
+Os agentes seguem o **Brand Book FSA 2026**: paleta Azul `#020084`, Amarelo
+`#FFDE59`, Cinza `#38424C`; slogan "Sua visão. Nosso código. Um negócio.";
+tipografia Sora (títulos) e Inter (corpo), substitutas oficiais de LASTICA e
+ASTRON; e o emblema FSA nunca recriado à mão.
+
+Documentação dos subagentes: https://code.claude.com/docs/en/sub-agents
