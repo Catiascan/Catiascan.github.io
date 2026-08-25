@@ -10,6 +10,7 @@ trabalha neste projeto — em qualquer máquina e também no Claude Code na web.
 | `seo-tecnico` | Meta tags, Open Graph, JSON-LD, robots, sitemap | Read, Grep, Glob, Edit, WebFetch | Só quando pedido |
 | `copy-fsa` | Texto do site na voz da FSA e da S.E.A. | Read, Grep, Glob, Edit, Skill | Só quando pedido |
 | `conselho-fsa` | Perguntas de negócio, encaminhadas para a skill da área | Read, Grep, Glob, Skill, WebSearch, WebFetch | Não |
+| `status-para-iris` | Lê o andamento no git e escreve o status para a Iris, com os pontos que ela precisa validar | Read, Grep, Glob, Bash, Skill | Não |
 
 ## Como usar
 
