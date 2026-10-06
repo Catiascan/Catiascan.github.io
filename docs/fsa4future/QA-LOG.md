@@ -198,7 +198,7 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 | G3 | Fichas de intenção: completar links internos, evidência, responsável e status (`docs/fsa4future/fichas-de-intencao.md`) | FSA | Aberto |
 | G4 | Criar atendimento@fsa4future.com.br (D8); até lá, o site usa catia@fsasolucoes.com.br (QA-019) | Cátia | Provisório |
 | G4 | WhatsApp Business e telefone próprios da FSA⁴Future (hoje provisórios da FSA, QA-019) | FSA | Provisório |
-| G4 | Calendly: evento "Conversa de Entendimento FSA — 30 min", pergunta personalizada 1 para o resumo, redirect para `https://fsa4future.com.br/conversar/confirmado/` com detalhes do evento | Cátia | Aberto |
+| G4 | Calendly (conta catiascan@gmail.com): 06/10 — evento renomeado para "Conversa de Entendimento FSA — 30 min" (link igual), gratuito, Google Meet; a pergunta 1 já existe (texto, recebe o resumo via `a1`). Falta, só pela interface web: redirect para `https://catiascan.github.io/fsa4future/conversar/confirmado/` (homologação) com "Pass event details" ligado; trocar para `https://fsa4future.com.br/conversar/confirmado/` no go-live | Cátia | Em andamento |
 | G4 | Ferramenta de analytics (carregar só após consentimento em `loadAnalytics()`) e teste dos eventos | FSA + Implementação | Aberto |
 | G4 | Endpoint de formulário opcional (`CONFIG.formEndpoint`) com cópia para atendimento@ | Implementação | Aberto |
 | — | Políticas de Privacidade e Cookies: leitura jurídica antes de tirar o aviso de rascunho e o noindex | FSA (jurídico) | Aberto |
