@@ -3,7 +3,7 @@
 
 Uso:
   python3 tools/build_fsa4future.py            # homologação (noindex em todas as páginas)
-  python3 tools/build_fsa4future.py --prod     # produção em https://fsa4f.com.br (indexável)
+  python3 tools/build_fsa4future.py --prod     # produção em https://fsa4future.com.br (indexável)
 
 Fonte do conteúdo: Handoff v1.3, FSiA_Base_de_Conhecimento_v1, Design System v1.1
 (ui_kits/website). Links internos são relativos, então a mesma saída funciona em
@@ -16,7 +16,7 @@ import os
 import sys
 
 PROD = '--prod' in sys.argv
-BASE = 'https://fsa4f.com.br/'
+BASE = 'https://fsa4future.com.br/'
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'fsa4future')
 YEAR = datetime.date.today().year
 UPDATED = datetime.date.today().isoformat()
@@ -29,7 +29,7 @@ SIGN = 'Technology 4 what’s next.'
 CAMPAIGN = 'Ideias em movimento. Impacto no futuro.'
 LEGAL = 'FSA IT4FUTURE HUB TECNOLOGIA LTDA'
 CNPJ = '69.447.199/0001-05'
-EMAIL = 'atendimento@fsa4f.com.br'
+EMAIL = 'atendimento@fsa4future.com.br'
 CTA = 'Quero conversar sobre meu desafio'
 
 FRONTS = [
@@ -465,7 +465,7 @@ sobre = f'''
 </div></section>
 <section class="section--md bg-sand100" aria-labelledby="h-her"><div class="container grid-2" style="align-items:center">
 <div class="stack"><h2 class="h3" id="h-her">Uma nova marca, a mesma escuta.</h2><p class="lead">A FSA Soluções em Tecnologia agora é {NAME_HTML}. O amarelo que acompanhou a empresa por mais de 20 anos continua no logo, no nó que representa o cliente: quem sempre esteve no centro do trabalho.</p><p class="label-up" style="color:var(--copper-700)">{CAMPAIGN}</p></div>
-<div class="f4-card stack-sm" style="align-items:center;text-align:center;padding:48px"><img src="{{R}}assets/logo/fsa4future-simbolo.svg" alt="Símbolo FSA⁴Future: núcleo, órbitas abertas e o nó amarelo do cliente" width="160" height="160" loading="lazy"><p class="small muted">Nada sobre o cliente sem o cliente.</p></div>
+<div class="f4-card stack-sm" style="align-items:center;text-align:center;padding:48px"><img src="{{R}}assets/logo/fsa4future-symbol-light.svg" alt="Símbolo FSA⁴Future: núcleo, órbitas abertas e o nó amarelo do cliente" width="160" height="160" loading="lazy"><p class="small muted">Nada sobre o cliente sem o cliente.</p></div>
 </div></section>
 {cta_final()}
 '''
@@ -653,8 +653,8 @@ def org_schema():
         '@type': 'Organization', '@id': BASE + '#organization', 'name': NAME,
         'alternateName': ['FSA 4 Future', 'FSA4Future', 'FSA Soluções em Tecnologia'],
         'legalName': LEGAL, 'taxID': CNPJ, 'url': BASE,
-        'logo': {'@type': 'ImageObject', 'url': BASE + 'assets/logo/fsa4future-simbolo-512.png', 'width': 512, 'height': 512},
-        'image': BASE + 'assets/img/og-fsa4future.png',
+        'logo': {'@type': 'ImageObject', 'url': BASE + 'assets/logo/fsa4future-symbol-light-512.png', 'width': 512, 'height': 512},
+        'image': BASE + 'assets/img/og-1200x630.png',
         'email': EMAIL, 'slogan': SIGN,
         'description': 'Technology & Business Hub que combina experiência, proximidade e diferentes capacidades tecnológicas para entender, desenhar e construir soluções para desafios reais de negócio.',
         'knowsAbout': ['Automação de processos', 'Integração de sistemas', 'APIs', 'Desenvolvimento de software sob medida', 'Modernização de sistemas legados', 'Inteligência artificial aplicada a negócios', 'Dados', 'Cloud'],
@@ -674,7 +674,7 @@ def render(p):
         graph.append(org_schema())
         graph.append({'@type': 'WebSite', '@id': BASE + '#website', 'name': NAME, 'url': BASE, 'inLanguage': 'pt-BR', 'publisher': {'@id': BASE + '#organization'}})
     else:
-        graph.append({'@type': 'Organization', '@id': BASE + '#organization', 'name': NAME, 'url': BASE, 'logo': BASE + 'assets/logo/fsa4future-simbolo-512.png'})
+        graph.append({'@type': 'Organization', '@id': BASE + '#organization', 'name': NAME, 'url': BASE, 'logo': BASE + 'assets/logo/fsa4future-symbol-light-512.png'})
     if p['crumb']:
         items = [{'@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': BASE}] + [
             {'@type': 'ListItem', 'position': i + 2, 'name': n, 'item': BASE + u} for i, (n, u) in enumerate(p['crumb'])]
@@ -686,7 +686,7 @@ def render(p):
     nav = ''.join(f'<li><a href="{R}{h}"{" aria-current=\"page\"" if cur == h else ""}>{l}</a></li>' for h, l in NAV)
     data_attrs = ''.join(f' data-{k}="{E(v)}"' for k, v in p['data'].items())
     body = p['body'].replace('{R}', R)
-    og_img = BASE + 'assets/img/og-fsa4future.png'
+    og_img = BASE + 'assets/img/og-1200x630.png'
     return f'''<!doctype html>
 <html lang="pt-BR" data-root="{R}">
 <head>
@@ -712,9 +712,9 @@ def render(p):
 <meta name="twitter:description" content="{E(p["description"])}">
 <meta name="twitter:image" content="{og_img}">
 <link rel="icon" href="{R}favicon.ico" sizes="any">
-<link rel="icon" href="{R}assets/logo/fsa4future-favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{R}assets/logo/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="{R}assets/logo/favicon-32.png" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="{R}assets/logo/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="{R}assets/logo/favicon-180.png">
 <link rel="manifest" href="{R}site.webmanifest">
 <link rel="preload" href="{R}assets/fonts/montserrat-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{R}assets/fonts/montserrat-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -736,8 +736,7 @@ def render(p):
 </section>
 <header class="site-header"><div class="container site-header__in">
 <a class="logo" href="{R}" aria-label="{NAME}, Technology &amp; Business Hub: página inicial">
-<img class="logo__sym" src="{R}assets/logo/fsa4future-simbolo.svg" alt="" width="36" height="36">
-<span class="logo__txt" aria-hidden="true"><span class="logo__name">FSA<sup>4</sup><span class="fut">Future</span></span><span class="logo__desc">Technology &amp; Business Hub</span></span></a>
+<img class="logo__img" src="{R}assets/logo/fsa4future-logo-light.svg" alt="" width="187" height="40"></a>
 <nav class="nav" id="nav" aria-label="Principal"><ul>{nav}</ul></nav>
 <button type="button" class="f4-iconbtn menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><svg class="f4-icon f4-icon--24" aria-hidden="true"><use href="{R}assets/icons/sprite.svg#i-menu"></use></svg></button>
 <a class="f4-btn f4-btn--primary f4-btn--sm header-cta" href="{R}conversar/" data-track="cta_principal" data-track-label="Header · Vamos conversar">Vamos conversar</a>
@@ -747,7 +746,7 @@ def render(p):
 </main>
 <footer class="site-footer"><div class="container">
 <div class="footer-grid">
-<div class="footer-col"><a class="logo logo--light" href="{R}" aria-label="{NAME}: página inicial"><img class="logo__sym" src="{R}assets/logo/fsa4future-simbolo-negativo.svg" alt="" width="36" height="36" loading="lazy"><span class="logo__txt" aria-hidden="true"><span class="logo__name">FSA<sup>4</sup><span class="fut">Future</span></span><span class="logo__desc">Technology &amp; Business Hub</span></span></a><p class="inv-accent" style="font-weight:500">{SIGN}</p></div>
+<div class="footer-col"><a class="logo logo--light" href="{R}" aria-label="{NAME}, Technology &amp; Business Hub: página inicial"><img class="logo__img logo__img--desc" src="{R}assets/logo/fsa4future-logo-descriptor-dark.svg" alt="" width="260" height="58" loading="lazy"></a><p class="inv-accent" style="font-weight:500">{SIGN}</p></div>
 <div class="footer-col"><h2>Como fazemos</h2><ul>{"".join(f'<li><a href="{R}como-fazemos/{s["slug"]}/">{s["name"]}</a></li>' for s in STEPS)}</ul></div>
 <div class="footer-col"><h2>Hub</h2><ul>{"".join(f'<li><a href="{R}hub/{f["slug"]}/">{f["name"]}</a></li>' for f in FRONTS)}<li><a href="{R}hub/fsa-4-partners/programa/">Programa de Parceiros</a></li></ul></div>
 <div class="footer-col"><h2>Contato</h2><ul><li><a href="mailto:{EMAIL}" data-track="clique_email" data-track-label="Rodapé · e-mail">{EMAIL}</a></li><li><a href="{R}conversar/">Agendar conversa</a></li><li><button type="button" class="linklike" data-fsia-open>Fale com a FSiA</button></li></ul></div>
@@ -786,14 +785,14 @@ def main():
     for p in urls:
         sm.append(f'  <url><loc>{BASE + p["path"]}</loc><lastmod>{UPDATED}</lastmod><priority>{p["priority"]}</priority></url>')
     sm.append('</urlset>')
-    open(os.path.join(OUT, 'sitemap.xml'), 'w').write('\n'.join(sm) + '\n')
+    open(os.path.join(OUT, 'sitemap.xml'), 'w', encoding='utf-8').write('\n'.join(sm) + '\n')
     rob = ('User-agent: *\nDisallow: /parceiros/\nAllow: /\n\nSitemap: ' + BASE + 'sitemap.xml\n') if PROD else \
         ('# HOMOLOGAÇÃO: este arquivo só vale na raiz do domínio. Em produção, gere com --prod.\nUser-agent: *\nDisallow: /\n')
-    open(os.path.join(OUT, 'robots.txt'), 'w').write(rob)
+    open(os.path.join(OUT, 'robots.txt'), 'w', encoding='utf-8').write(rob)
     manifest = {'name': 'FSA⁴Future · Technology & Business Hub', 'short_name': 'FSA⁴Future', 'lang': 'pt-BR', 'start_url': './', 'display': 'browser',
                 'background_color': '#F8F6F1', 'theme_color': '#073B4C',
-                'icons': [{'src': 'assets/logo/icon-192.png', 'sizes': '192x192', 'type': 'image/png'}, {'src': 'assets/logo/icon-512.png', 'sizes': '512x512', 'type': 'image/png'}]}
-    open(os.path.join(OUT, 'site.webmanifest'), 'w').write(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
+                'icons': [{'src': 'assets/logo/favicon-192.png', 'sizes': '192x192', 'type': 'image/png'}, {'src': 'assets/logo/favicon-512.png', 'sizes': '512x512', 'type': 'image/png'}]}
+    open(os.path.join(OUT, 'site.webmanifest'), 'w', encoding='utf-8').write(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n')
     # ficha de intenção por URL (G3)
     rows = ['| URL | Finalidade | Persona/intenção | Tema principal | Title | Meta description | H1 | CTA | Indexação | Schema |', '|---|---|---|---|---|---|---|---|---|---|']
     for p in PAGES:
@@ -805,7 +804,7 @@ def main():
         rows.append(f'| /{p["path"]} | {cell(i.get("finalidade", ""))} | {cell(i.get("persona", ""))} | {cell(i.get("tema", ""))} | {cell(p["title"])} | {cell(p["description"])} | {cell(p["h1"])} | {cell(i.get("cta", ""))} | {"noindex" if p["noindex"] else "index"} | {sch} |')
     doc = os.path.join(OUT, '..', 'docs', 'fsa4future', 'fichas-de-intencao.md')
     os.makedirs(os.path.dirname(doc), exist_ok=True)
-    open(doc, 'w').write('# FSA⁴Future · Fichas de intenção por URL (G3)\n\nGerado por `tools/build_fsa4future.py` em ' + UPDATED + '. Editar os dados no gerador, não aqui.\n\n'
+    open(doc, 'w', encoding='utf-8').write('# FSA⁴Future · Fichas de intenção por URL (G3)\n\nGerado por `tools/build_fsa4future.py` em ' + UPDATED + '. Editar os dados no gerador, não aqui.\n\n'
                          'Campos ainda pendentes por URL (preencher com a FSA): links internos de entrada e saída validados, conteúdo/evidência necessária, responsável e status.\n\n' + '\n'.join(rows) + '\n')
     print(f'{len(PAGES)} páginas · {"PRODUÇÃO" if PROD else "HOMOLOGAÇÃO (noindex)"} · sitemap com {len(urls)} URLs')
 

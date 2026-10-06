@@ -54,7 +54,8 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 - Diagnóstico: implementação (insumo faltando).
 - Correção aplicada: 06/10/2026 — para não travar favicon, OG e schema, o site usa um **símbolo provisório de implementação** gerado da geometria do F4F (núcleo r23, órbitas r45/r72) recolorido conforme a decisão de 06/10: núcleo e órbitas Deep Petrol #073B4C e nó do cliente amarelo #F9DC6B com anel petróleo. O nome é tipografia Montserrat em HTML (sem vetor convertido). Arquivos: `fsa4future/assets/logo/fsa4future-simbolo.svg`, `-negativo.svg`, `-favicon.svg`, PNGs e `favicon.ico`.
 - Correção recomendada: copiar o v0 oficial para `fsa4future/assets/logo/` com estes nomes (ou ajustar os nomes no gerador) e rodar o build; subir o v0 oficial ao Drive. **Não subir o símbolo provisório ao Drive como logo.**
-- Status: Em andamento (bloqueia a tarefa A1 e o go-live, não a homologação).
+- Correção aplicada (2): 06/10/2026, terminal — pacote encontrado em `Downloads\FSA 4 Future Design System (1).zip` (18h26). Símbolo provisório removido; o site usa os arquivos do v0 com os nomes do v0 (referências ajustadas em `tools/build_fsa4future.py`): `fsa4future-logo-light.svg` (header, 187×40 px), `fsa4future-logo-descriptor-dark.svg` (rodapé, 260 px, acima dos 240 px exigidos para o descritor), `fsa4future-symbol-light.svg` (Sobre), `favicon.svg` (núcleo + uma órbita), `favicon-32/180/192/512.png`, `favicon.ico` (ICO do v0), `fsa4future-symbol-light-512.png` (schema) e `assets/img/og-1200x630.png`. O nome deixou de ser texto HTML: agora é o lockup com nome em contornos, `alt=""` e o `aria-label` mantido no link. Verificado em Chrome desktop (1272 px) e em moldura de 390 px nas páginas Home, Sobre, Conversar, Hub/Flow e Ouvir: imagens carregam, sem overflow horizontal, logo do header não encosta no botão de menu. Logo v0 completo (50 arquivos: SVG + `export/`) enviado ao Drive em Design System v1 / Logo v0. Conferido: nó do cliente #F9DC6B com anel petróleo #073B4C nas versões coloridas de fundo claro; nas versões de fundo escuro o nó é amarelo sem anel (petróleo sobre petróleo não apareceria), e as monocromáticas não têm amarelo, como previsto no sistema de versões. Registrado, sem alterar o v0.
+- Status: Fechado (A1 feita). Revisão óptica do v0 segue no QA-002, com o Fernando.
 
 ### QA-004 — Texto do CTA final e do Conversar falava "problema" com o cliente
 - Severidade: Conversão · Gate: G4
@@ -142,7 +143,8 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 - Observado: o LEIA-ME de 06/10 da pasta "Logo F4F para finalizar" diz que o símbolo é Mineral #0B0B0F + Champagne e que é a "única referência válida"; a decisão da CEO de 06/10 (prompt de continuação e Doc v1.3) define núcleo Deep Petrol e nó amarelo #F9DC6B com anel petróleo.
 - Diagnóstico: documentação desatualizada no Drive.
 - Correção recomendada: marcar o LEIA-ME de 06/10 como substituído pelo Doc v1.3 (ou mover para _DELETAR) quando o v0 oficial for subido. Implementação segue a decisão da CEO.
-- Status: Aberto (ação da Cátia no Drive).
+- Correção aplicada: 06/10/2026, terminal — LEIA-ME renomeado para "[SUBSTITUÍDO pelo Logo v0 em Design System v1] 00_LEIA-ME — Logo F4F e site (06-10-2026)" na pasta "Logo F4F para finalizar".
+- Status: Fechado.
 
 ### QA-015 — Prazo de resposta (SLA) nos documentos de origem
 - Severidade: Conversão · Gate: G4
@@ -156,6 +158,23 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 - Correção aplicada: a página Sobre publica Propósito, Promessa, Crença e Pilares; a Visão fica de fora até a validação.
 - Status: Aberto (aguarda validação da FSA).
 
+### QA-017 — Domínio do site e do atendimento@ apontava para fsa4f.com.br, que não está registrado
+- Severidade: Bloqueio · Gate: G3/G4
+- Página / componente: canonical, sitemap, OG, schema, `EMAIL` do gerador, `CONFIG.email` e UID do .ics em `site.js`, documentos em `docs/fsa4future/`
+- Ambiente: verificação no RDAP do Registro.br, 06/10/2026
+- Esperado: domínio registrado no CNPJ 69.447.199/0001-05.
+- Observado: `fsa4f.com.br` não está registrado. O domínio comprado pela Cátia em 05/10/2026, no CNPJ da FSA IT4FUTURE (Locaweb), é `fsa4future.com.br`.
+- Diagnóstico: implementação (handoff v1.3 §25 com domínio não adquirido).
+- Correção aplicada: 06/10/2026 — por decisão da Cátia, todas as ocorrências trocadas por `fsa4future.com.br`: `BASE`, `EMAIL`, `site.js` e documentos. O e-mail passa a ser atendimento@fsa4future.com.br. O redirect do Calendly passa a ser `https://fsa4future.com.br/conversar/confirmado/`. O `fsaforfuture.com.br` (mesmo titular) deve redirecionar para ele.
+- Status: Fechado no código. O handoff de origem continua com o domínio antigo (atualizar na próxima versão).
+
+### QA-018 — Gerador quebrava no Windows ao gravar sitemap, robots e manifest
+- Severidade: Compatibilidade · Gate: —
+- Ambiente: Windows 11 · Python 3.12 · terminal
+- Observado: `UnicodeEncodeError` (cp1252) ao gravar `site.webmanifest`, por causa do ⁴; quatro `open(..., 'w')` sem `encoding`.
+- Correção aplicada: 06/10/2026 — `encoding='utf-8'` nas quatro gravações de `tools/build_fsa4future.py`. A saída fica igual à do Linux.
+- Status: Fechado.
+
 ## Pendências abertas por gate
 
 | Gate | Item | Dono | Situação |
@@ -167,9 +186,9 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 | G3 | Hospedagem com suporte a 301 (GitHub Pages não faz 301 por URL) | Implementação | Aberto |
 | G3 | Build `--prod`, robots/sitemap na raiz, Search Console, Bing Webmaster Tools, IndexNow, validação do schema (Rich Results Test) | Implementação | Aberto |
 | G3 | Fichas de intenção: completar links internos, evidência, responsável e status (`docs/fsa4future/fichas-de-intencao.md`) | FSA | Aberto |
-| G4 | Criar atendimento@fsa4f.com.br (D8); até lá, os links de e-mail falham | Implementação | Bloqueado |
+| G4 | Criar atendimento@fsa4future.com.br (D8); até lá, os links de e-mail falham | Implementação | Bloqueado |
 | G4 | WhatsApp Business e telefone (`CONFIG.whatsapp`/`telefone` em `assets/js/site.js`) | FSA | Bloqueado |
-| G4 | Calendly: evento "Conversa de Entendimento FSA — 30 min", pergunta personalizada 1 para o resumo, redirect para `/conversar/confirmado/` com detalhes do evento | Cátia | Aberto |
+| G4 | Calendly: evento "Conversa de Entendimento FSA — 30 min", pergunta personalizada 1 para o resumo, redirect para `https://fsa4future.com.br/conversar/confirmado/` com detalhes do evento | Cátia | Aberto |
 | G4 | Ferramenta de analytics (carregar só após consentimento em `loadAnalytics()`) e teste dos eventos | FSA + Implementação | Aberto |
 | G4 | Endpoint de formulário opcional (`CONFIG.formEndpoint`) com cópia para atendimento@ | Implementação | Aberto |
 | — | Políticas de Privacidade e Cookies: leitura jurídica antes de tirar o aviso de rascunho e o noindex | FSA (jurídico) | Aberto |

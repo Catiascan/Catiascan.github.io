@@ -9,7 +9,7 @@
      endpoint de formulário. O e-mail atendimento@ ainda precisa ser criado (D8).
   ------------------------------------------------------------------ */
   var CONFIG = {
-    email: 'atendimento@fsa4f.com.br',
+    email: 'atendimento@fsa4future.com.br',
     whatsapp: '',            // somente dígitos com DDI, ex.: '5512999999999' (WhatsApp Business da FSA⁴Future)
     telefone: '',            // ex.: '+551200000000'
     telefoneLabel: '',       // ex.: '(12) 0000-0000'
@@ -441,7 +441,7 @@
       when.hidden = false;
       var title = 'Conversa de Entendimento FSA — 30 min';
       var desc = 'Conversa de Entendimento FSA⁴Future. O link do Google Meet está no convite enviado por e-mail.';
-      var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FSA4Future//Site//PT-BR', 'BEGIN:VEVENT', 'UID:' + Date.now() + '@fsa4f.com.br', 'DTSTAMP:' + icsDate(new Date()), 'DTSTART:' + icsDate(start), 'DTEND:' + icsDate(end), 'SUMMARY:' + title, 'DESCRIPTION:' + desc, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+      var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//FSA4Future//Site//PT-BR', 'BEGIN:VEVENT', 'UID:' + Date.now() + '@fsa4future.com.br', 'DTSTAMP:' + icsDate(new Date()), 'DTSTART:' + icsDate(start), 'DTEND:' + icsDate(end), 'SUMMARY:' + title, 'DESCRIPTION:' + desc, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
       add.href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics); add.setAttribute('download', 'conversa-fsa4future.ics'); add.hidden = false;
       gcal.href = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent(title) + '&dates=' + icsDate(start) + '/' + icsDate(end) + '&details=' + encodeURIComponent(desc);
       gcal.hidden = false; note.hidden = true;

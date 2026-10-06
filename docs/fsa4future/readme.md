@@ -18,13 +18,13 @@ Atualizado em 06/10/2026. Substitui o README do Design System v1 de 29/09 (que a
 ## Onde está cada coisa neste repositório
 | Caminho | O quê |
 |---|---|
-| `fsa4future/` | Site V1 estático gerado (pronto para subir na raiz de fsa4f.com.br). Homologação: `https://catiascan.github.io/fsa4future/` |
+| `fsa4future/` | Site V1 estático gerado (pronto para subir na raiz de fsa4future.com.br). Homologação: `https://catiascan.github.io/fsa4future/` |
 | `tools/build_fsa4future.py` | Gerador (Python 3.12+, sem dependências). Conteúdo, metadados, schema e fichas ficam aqui. `--prod` gera a versão indexável |
 | `fsa4future/assets/css/site.css` | Tokens + componentes do DS v1.1 num arquivo; blocos `IMPL QA-###` são ajustes de implementação |
 | `fsa4future/assets/js/site.js` | Menu, consentimento + eventos, FSiA, fluxo Conversar, confirmação. `CONFIG` no topo concentra canais pendentes |
 | `fsa4future/assets/icons/sprite.svg` | 28 ícones Lucide 0.460.0 auto-hospedados (QA-001) |
 | `fsa4future/assets/fonts/` | Montserrat woff2 auto-hospedada (OFL) — sem Google Fonts, por LGPD e performance |
-| `fsa4future/assets/logo/` | **Símbolo provisório de implementação** (QA-003) — trocar pelo v0 oficial mantendo os nomes |
+| `fsa4future/assets/logo/` | Logo v0 oficial (06/10/2026), com os nomes do v0: lockup do header e do rodapé, símbolo, favicons. Revisão óptica: QA-002 |
 | `docs/fsa4future/QA-LOG.md` | Achados QA-###, pendências por gate e backlog |
 | `docs/fsa4future/fichas-de-intencao.md` | Ficha por URL (gerada) |
 | `docs/fsa4future/migracao-urls.md` | Modelo do mapa de migração 301 |
@@ -45,7 +45,7 @@ Desafio → dados (com autorização LGPD, nenhuma caixa pré-marcada) → canal
 Aviso com Aceitar, Recusar e Escolher com o mesmo destaque; escolha registrada com data e versão; link "Preferências de cookies" no rodapé. Eventos do funil do handoff §19 já disparam para `window.dataLayer` **só com consentimento de análise**; a ferramenta de analytics ainda não foi escolhida (`loadAnalytics()` em `site.js`).
 
 ## SEO/GEO técnico
-Um H1 por página, títulos e descrições exclusivos, canonical absoluto em https://fsa4f.com.br, Open Graph/Twitter com OG 1200×630, trilhas com `BreadcrumbList`, `Organization` (legalName, taxID, logo, e-mail), `WebSite`, `Service` nas frentes, `AboutPage` e `ContactPage`. Sitemap só com URLs canônicas indexáveis; robots com `Disallow: /parceiros/` em produção. Em homologação todas as páginas são `noindex, nofollow`.
+Um H1 por página, títulos e descrições exclusivos, canonical absoluto em https://fsa4future.com.br, Open Graph/Twitter com OG 1200×630, trilhas com `BreadcrumbList`, `Organization` (legalName, taxID, logo, e-mail), `WebSite`, `Service` nas frentes, `AboutPage` e `ContactPage`. Sitemap só com URLs canônicas indexáveis; robots com `Disallow: /parceiros/` em produção. Em homologação todas as páginas são `noindex, nofollow`.
 
 ## Auditoria de dependências e arquivos (tarefa 9)
 - Zero dependências de execução de terceiros na carga das páginas (fontes, ícones, CSS e JS locais). Calendly só carrega quando a pessoa escolhe agendar.
@@ -58,4 +58,4 @@ Um H1 por página, títulos e descrições exclusivos, canonical absoluto em htt
 python3 tools/build_fsa4future.py          # homologação (noindex)
 python3 tools/build_fsa4future.py --prod   # produção: indexável, robots/sitemap para a raiz
 ```
-Em produção, publicar o conteúdo de `fsa4future/` na raiz de fsa4f.com.br numa hospedagem que aceite redirects 301 por URL (Cloudflare Pages, Netlify ou Vercel; GitHub Pages não faz 301). O `404.html` de produção usa caminhos a partir de `/`.
+Em produção, publicar o conteúdo de `fsa4future/` na raiz de fsa4future.com.br numa hospedagem que aceite redirects 301 por URL (Cloudflare Pages, Netlify ou Vercel; GitHub Pages não faz 301). O `404.html` de produção usa caminhos a partir de `/`.

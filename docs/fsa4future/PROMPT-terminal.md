@@ -29,7 +29,7 @@ Leitor de tela (NVDA no Windows, VoiceOver no iOS/macOS) nas páginas Home, Hub/
 
 ### 4. Canais e conversão (G4) — quando a FSA fornecer
 - Preencha `CONFIG` no topo de `fsa4future/assets/js/site.js`: `whatsapp` (WhatsApp Business da FSA⁴Future, nunca número pessoal), `telefone` e `telefoneLabel`. Canal vazio não aparece.
-- Calendly: confirme o evento "Conversa de Entendimento FSA — 30 min" (gratuita, Google Meet); crie a **pergunta personalizada 1** (recebe o resumo via `a1`); configure **redirecionar para** `https://fsa4f.com.br/conversar/confirmado/` com **"Pass event details"** ligado (traz `event_start_time`/`event_end_time` para o "Adicionar à agenda").
+- Calendly: confirme o evento "Conversa de Entendimento FSA — 30 min" (gratuita, Google Meet); crie a **pergunta personalizada 1** (recebe o resumo via `a1`); configure **redirecionar para** `https://fsa4future.com.br/conversar/confirmado/` com **"Pass event details"** ligado (traz `event_start_time`/`event_end_time` para o "Adicionar à agenda").
 - Analytics: escolha a ferramenta com a FSA e implemente em `loadAnalytics()` (só após consentimento). Teste os eventos do handoff §19 (já disparados no `dataLayer`): `cta_principal`, `cta_exploratorio`, `fsia_abertura`, `fsia_inicio_conversa`, `fsia_pedido_humano`, `clique_whatsapp`, `clique_email`, `solicitacao_telefone`, `agenda_abertura`, `agendamento_concluido`, `envio_formulario`, `visualizacao_case`, `interacao_metodo`, `visita_hub`.
 - Opcional: `CONFIG.formEndpoint` (ex.: Apps Script) para gravar o formulário e mandar cópia a atendimento@.
 - Teste ponta a ponta: FSiA → atendimento@ → WhatsApp / e-mail / telefone / agenda → confirmação, com consentimento aceito e recusado.
@@ -40,7 +40,7 @@ Siga `docs/fsa4future/operacao-atendimento.md`: domínio no CNPJ da FSA IT4FUTUR
 ### 6. G3 · SEO/GEO técnico e go-live
 1. Com o acesso ao Search Console/analytics e o inventário do site atual, preencha `docs/fsa4future/migracao-urls.md` e gere os 301 individuais na hospedagem escolhida (Cloudflare Pages, Netlify ou Vercel; GitHub Pages não faz 301).
 2. Complete as fichas em `docs/fsa4future/fichas-de-intencao.md` (links de entrada/saída, evidência, responsável, status) editando os dados no gerador.
-3. `python3 tools/build_fsa4future.py --prod` e publique `fsa4future/` na raiz de fsa4f.com.br. Valide schema (Rich Results Test), canonical, robots e sitemap; envie o sitemap no Search Console e no Bing Webmaster Tools; configure IndexNow. Meça Core Web Vitals (PageSpeed Insights) nas 5 páginas principais.
+3. `python3 tools/build_fsa4future.py --prod` e publique `fsa4future/` na raiz de fsa4future.com.br. Valide schema (Rich Results Test), canonical, robots e sitemap; envie o sitemap no Search Console e no Bing Webmaster Tools; configure IndexNow. Meça Core Web Vitals (PageSpeed Insights) nas 5 páginas principais.
 4. Só tire o `noindex` de Cases e Conteúdos quando houver o primeiro case autorizado e o primeiro artigo; só tire o aviso de rascunho das políticas depois da leitura jurídica.
 
 ### 7. Auditoria final (tarefa 9)

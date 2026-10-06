@@ -30,4 +30,4 @@ Vercel (`vercel.json`):
 (As linhas acima são exemplos de formato, não URLs reais do site atual.)
 
 ## Depois do go-live
-Search Console: enviar `https://fsa4f.com.br/sitemap.xml`, acompanhar Cobertura/Páginas por 30 dias, inspecionar as 20 URLs antigas com mais cliques. Bing Webmaster Tools: importar do Search Console e enviar o sitemap. IndexNow: publicar a chave na raiz e enviar as URLs novas (Bing/Yandex).
+Search Console: enviar `https://fsa4future.com.br/sitemap.xml`, acompanhar Cobertura/Páginas por 30 dias, inspecionar as 20 URLs antigas com mais cliques. Bing Webmaster Tools: importar do Search Console e enviar o sitemap. IndexNow: publicar a chave na raiz e enviar as URLs novas (Bing/Yandex).

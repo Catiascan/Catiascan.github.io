@@ -1,6 +1,6 @@
 # FSA⁴Future · Operação do atendimento@ (D8)
 
-**Endereço:** atendimento@fsa4f.com.br (handoff v1.3 §25). **Status:** a criar. O domínio fsa4f.com.br precisa estar registrado em nome da FSA IT4FUTURE HUB TECNOLOGIA LTDA (CNPJ 69.447.199/0001-05).
+**Endereço:** atendimento@fsa4future.com.br (handoff v1.3 §25). **Status:** a criar. O domínio fsa4future.com.br precisa estar registrado em nome da FSA IT4FUTURE HUB TECNOLOGIA LTDA (CNPJ 69.447.199/0001-05).
 
 ## Checklist
 - [ ] Domínio registrado no CNPJ da FSA IT4FUTURE e DNS sob conta da empresa (não pessoal).
@@ -19,7 +19,7 @@
 | MX | @ | `smtp.google.com` (prioridade 1) |
 | TXT (SPF) | @ | `v=spf1 include:_spf.google.com ~all` (incluir também o serviço de envio do site, se houver) |
 | TXT (DKIM) | `google._domainkey` | chave gerada no Admin Console |
-| TXT (DMARC) | `_dmarc` | `v=DMARC1; p=none; rua=mailto:atendimento@fsa4f.com.br; fo=1` → subir para `p=quarantine` após 2–4 semanas de relatórios limpos |
+| TXT (DMARC) | `_dmarc` | `v=DMARC1; p=none; rua=mailto:atendimento@fsa4future.com.br; fo=1` → subir para `p=quarantine` após 2–4 semanas de relatórios limpos |
 
 ## Integrações
 - **Site:** links de e-mail e resumo já apontam para atendimento@ (`CONFIG.email` em `fsa4future/assets/js/site.js`).
