@@ -196,7 +196,7 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 | G3 | Hospedagem com suporte a 301 (GitHub Pages não faz 301 por URL) | Implementação | Aberto |
 | G3 | Build `--prod`, robots/sitemap na raiz, Search Console, Bing Webmaster Tools, IndexNow, validação do schema (Rich Results Test) | Implementação | Aberto |
 | G3 | Fichas de intenção: completar links internos, evidência, responsável e status (`docs/fsa4future/fichas-de-intencao.md`) | FSA | Aberto |
-| G4 | Criar atendimento@fsa4future.com.br (D8); até lá, o site usa catia@fsasolucoes.com.br (QA-019) | Cátia | Provisório |
+| G4 | Criar atendimento@fsa4future.com.br (D8); até lá, o site usa catia@fsasolucoes.com.br (QA-019). 06/10: tentativa no Zoho Mail gratuito parou na verificação da conta; adiado. DNS do domínio na Locaweb sem MX/TXT (nada a limpar) | Cátia | Provisório |
 | G4 | WhatsApp Business e telefone próprios da FSA⁴Future (hoje provisórios da FSA, QA-019) | FSA | Provisório |
 | G4 | Calendly (conta catiascan@gmail.com): 06/10 — evento renomeado para "Conversa de Entendimento FSA — 30 min" (link igual), gratuito, Google Meet; a pergunta 1 já existe (texto, recebe o resumo via `a1`). Falta, só pela interface web: redirect para `https://catiascan.github.io/fsa4future/conversar/confirmado/` (homologação) com "Pass event details" ligado; trocar para `https://fsa4future.com.br/conversar/confirmado/` no go-live | Cátia | Em andamento |
 | G4 | Ferramenta de analytics (carregar só após consentimento em `loadAnalytics()`) e teste dos eventos | FSA + Implementação | Aberto |
@@ -204,7 +204,7 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 | — | Políticas de Privacidade e Cookies: leitura jurídica antes de tirar o aviso de rascunho e o noindex | FSA (jurídico) | Aberto |
 | — | Fotos reais (hoje: espaços reservados listrados) e cases autorizados | FSA | Aberto |
 | — | Portal do Parceiro (handoff §27.3–27.11): sistema com login, contrato e comissões — fora do escopo desta fase | — | Backlog pós-lançamento |
-| — | Auditoria final de dependências/arquivos não usados (tarefa 9) | Implementação | Feita para o site (ver readme); repetir antes do go-live |
+| — | Auditoria final de dependências/arquivos não usados (tarefa 9) | Implementação | 06/10 (terminal): único arquivo sem uso era `assets/logo/fsa4future-symbol-dark.svg` (removido; o original está no Drive, Logo v0). Licenças, robots.txt e sitemap.xml ficam (não são referenciados por página, mas são necessários). Nenhum recurso de terceiros na abertura: Calendly só ao escolher agendar; WhatsApp e Google Agenda só em links. Repetir antes do go-live |
 
 ## Backlog pós-lançamento
 Ideias que não bloqueiam acessibilidade, SEO/GEO, segurança ou conversão.
