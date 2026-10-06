@@ -29,7 +29,7 @@ SIGN = 'Technology 4 what’s next.'
 CAMPAIGN = 'Ideias em movimento. Impacto no futuro.'
 LEGAL = 'FSA IT4FUTURE HUB TECNOLOGIA LTDA'
 CNPJ = '69.447.199/0001-05'
-EMAIL = 'atendimento@fsa4future.com.br'
+EMAIL = 'catia@fsasolucoes.com.br'  # PROVISÓRIO (QA-019) até atendimento@fsa4future.com.br existir
 CTA = 'Quero conversar sobre meu desafio'
 
 FRONTS = [

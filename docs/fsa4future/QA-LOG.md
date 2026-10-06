@@ -175,6 +175,16 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 - Correção aplicada: 06/10/2026 — `encoding='utf-8'` nas quatro gravações de `tools/build_fsa4future.py`. A saída fica igual à do Linux.
 - Status: Fechado.
 
+### QA-019 — Contatos provisórios até a FSA⁴Future ter canais próprios
+- Severidade: Conversão · Gate: G4
+- Página / componente: `CONFIG` em `fsa4future/assets/js/site.js`, `EMAIL` em `tools/build_fsa4future.py` (rodapé, Parceiros, políticas, schema)
+- Esperado (handoff): WhatsApp Business próprio da FSA⁴Future e atendimento@fsa4future.com.br.
+- Observado: nenhum dos dois existe ainda.
+- Decisão da Cátia, 06/10/2026: usar por enquanto os contatos da FSA — WhatsApp e telefone (12) 3351-9958 e e-mail catia@fsasolucoes.com.br — até tudo estar resolvido; ela pede a troca depois.
+- Correção aplicada: 06/10/2026 — `CONFIG.whatsapp = '551233519958'`, `telefone = '+551233519958'`, `telefoneLabel = '(12) 3351-9958'`, `CONFIG.email` e `EMAIL = 'catia@fsasolucoes.com.br'`, marcados como PROVISÓRIO no código.
+- Pendente: trocar pelos canais da FSA⁴Future (chip novo + WhatsApp Business e atendimento@) antes do go-live definitivo; o e-mail nominal só sai depois de todos os pontos migrarem (D8).
+- Status: Provisório.
+
 ## Pendências abertas por gate
 
 | Gate | Item | Dono | Situação |
@@ -182,12 +192,12 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 | G1 | Teste real em Chrome/Edge desktop, Safari iOS e Chrome Android (ícones, menu, abas do Hub, trilhas, FSiA com teclado aberto, overflow) | Implementação | Aberto |
 | G2 | Leitor de tela (NVDA + VoiceOver) e revisão visual dos tons derivados | Implementação + FSA | Aberto |
 | G3 | Core Web Vitals em produção (PageSpeed/CrUX). Peso local da Home: HTML 6 KB, CSS 9 KB, JS 10 KB (gzip) + 4 fontes woff2 de ~19 KB, sem JS de terceiros na carga | Implementação | Aberto |
-| G3 | Inventário do site atual e mapa de redirects 301 individuais (`docs/fsa4future/migracao-urls.md`) | FSA (acesso) + Implementação | Bloqueado: falta acesso ao Search Console/analytics e inventário |
+| G3 | Inventário do site atual e mapa de redirects 301 individuais (`docs/fsa4future/migracao-urls.md`) | Fernando (acesso) + Implementação | Bloqueado: acesso ao Search Console/analytics e inventário provavelmente só com o Fernando |
 | G3 | Hospedagem com suporte a 301 (GitHub Pages não faz 301 por URL) | Implementação | Aberto |
 | G3 | Build `--prod`, robots/sitemap na raiz, Search Console, Bing Webmaster Tools, IndexNow, validação do schema (Rich Results Test) | Implementação | Aberto |
 | G3 | Fichas de intenção: completar links internos, evidência, responsável e status (`docs/fsa4future/fichas-de-intencao.md`) | FSA | Aberto |
-| G4 | Criar atendimento@fsa4future.com.br (D8); até lá, os links de e-mail falham | Implementação | Bloqueado |
-| G4 | WhatsApp Business e telefone (`CONFIG.whatsapp`/`telefone` em `assets/js/site.js`) | FSA | Bloqueado |
+| G4 | Criar atendimento@fsa4future.com.br (D8); até lá, o site usa catia@fsasolucoes.com.br (QA-019) | Cátia | Provisório |
+| G4 | WhatsApp Business e telefone próprios da FSA⁴Future (hoje provisórios da FSA, QA-019) | FSA | Provisório |
 | G4 | Calendly: evento "Conversa de Entendimento FSA — 30 min", pergunta personalizada 1 para o resumo, redirect para `https://fsa4future.com.br/conversar/confirmado/` com detalhes do evento | Cátia | Aberto |
 | G4 | Ferramenta de analytics (carregar só após consentimento em `loadAnalytics()`) e teste dos eventos | FSA + Implementação | Aberto |
 | G4 | Endpoint de formulário opcional (`CONFIG.formEndpoint`) com cópia para atendimento@ | Implementação | Aberto |

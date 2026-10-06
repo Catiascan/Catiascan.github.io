@@ -9,10 +9,11 @@
      endpoint de formulário. O e-mail atendimento@ ainda precisa ser criado (D8).
   ------------------------------------------------------------------ */
   var CONFIG = {
-    email: 'atendimento@fsa4future.com.br',
-    whatsapp: '',            // somente dígitos com DDI, ex.: '5512999999999' (WhatsApp Business da FSA⁴Future)
-    telefone: '',            // ex.: '+551200000000'
-    telefoneLabel: '',       // ex.: '(12) 0000-0000'
+    // PROVISÓRIO (QA-019, 06/10/2026): contatos da FSA até a FSA⁴Future ter número e atendimento@ próprios.
+    email: 'catia@fsasolucoes.com.br',
+    whatsapp: '551233519958',          // somente dígitos com DDI (WhatsApp Business da FSA, provisório)
+    telefone: '+551233519958',
+    telefoneLabel: '(12) 3351-9958',
     calendly: 'https://calendly.com/catiascan/primeiro-atendimento-gratuito-fsa-future',
     formEndpoint: '',        // POST JSON opcional (ex.: Apps Script/Formspree) com cópia para atendimento@
     consentVersion: '1.0'
