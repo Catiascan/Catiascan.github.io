@@ -156,7 +156,9 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 ### QA-016 — Visão ainda é proposta
 - Severidade: Conteúdo · Gate: —
 - Correção aplicada: a página Sobre publica Propósito, Promessa, Crença e Pilares; a Visão fica de fora até a validação.
-- Status: Aberto (aguarda validação da FSA).
+- Validação 07/10/2026 (Cátia): a proposta original repetia a Crença ("não cabe em uma solução pronta"). Aprovada a versão: "Ser o hub de tecnologia e negócios que as empresas procuram primeiro quando precisam resolver um desafio de verdade."
+- Correção aplicada (2): 07/10/2026 — Visão publicada na página Sobre, antes da Promessa e da Crença (`tools/build_fsa4future.py`).
+- Status: Fechado.
 
 ### QA-017 — Domínio do site e do atendimento@ apontava para fsa4f.com.br, que não está registrado
 - Severidade: Bloqueio · Gate: G3/G4
@@ -196,13 +198,13 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 | G3 | Hospedagem com suporte a 301 (GitHub Pages não faz 301 por URL) | Implementação | Aberto |
 | G3 | Build `--prod`, robots/sitemap na raiz, Search Console, Bing Webmaster Tools, IndexNow, validação do schema (Rich Results Test) | Implementação | Aberto |
 | G3 | Fichas de intenção: completar links internos, evidência, responsável e status (`docs/fsa4future/fichas-de-intencao.md`) | FSA | Aberto |
-| G4 | Criar atendimento@fsa4future.com.br (D8); até lá, o site usa catia@fsasolucoes.com.br (QA-019). 06/10: tentativa no Zoho Mail gratuito parou na verificação da conta; adiado. DNS do domínio na Locaweb sem MX/TXT (nada a limpar) | Cátia | Provisório |
+| G4 | Criar atendimento@fsa4future.com.br (D8); até lá, o site usa catia@fsasolucoes.com.br (QA-019). 06/10: tentativa no Zoho Mail gratuito parou na verificação da conta; adiado. DNS do domínio na Locaweb sem MX/TXT (nada a limpar) 07/10: a aguardar resposta do Fernando | Cátia + Fernando | Provisório — à espera do Fernando |
 | G4 | WhatsApp Business e telefone próprios da FSA⁴Future (hoje provisórios da FSA, QA-019) | FSA | Provisório |
-| G4 | Calendly (conta catiascan@gmail.com): 06/10 — evento renomeado para "Conversa de Entendimento FSA — 30 min" (link igual), gratuito, Google Meet; a pergunta 1 já existe (texto, recebe o resumo via `a1`). Falta, só pela interface web: redirect para `https://catiascan.github.io/fsa4future/conversar/confirmado/` (homologação) com "Pass event details" ligado; trocar para `https://fsa4future.com.br/conversar/confirmado/` no go-live | Cátia | Em andamento |
+| G4 | Calendly (conta catiascan@gmail.com): 06/10 — evento renomeado para "Conversa de Entendimento FSA — 30 min" (link igual), gratuito, Google Meet; a pergunta 1 já existe (texto, recebe o resumo via `a1`). 07/10: a Cátia confirma que o redirect de homologação já está configurado e conferido, e o evento tem 30 min. Fica só trocar para `https://fsa4future.com.br/conversar/confirmado/` no go-live | Cátia | Feito (homologação); trocar no go-live |
 | G4 | Ferramenta de analytics (carregar só após consentimento em `loadAnalytics()`) e teste dos eventos | FSA + Implementação | Aberto |
 | G4 | Endpoint de formulário opcional (`CONFIG.formEndpoint`) com cópia para atendimento@ | Implementação | Aberto |
-| — | Políticas de Privacidade e Cookies: leitura jurídica antes de tirar o aviso de rascunho e o noindex | FSA (jurídico) | Aberto |
-| — | Fotos reais (hoje: espaços reservados listrados) e cases autorizados | FSA | Aberto |
+| — | Políticas de Privacidade e Cookies: leitura jurídica antes de tirar o aviso de rascunho e o noindex. 07/10: leitura da skill jurídica feita (4 pontos críticos, 5 perguntas ao advogado), doc "Leitura jurídica — Políticas de Privacidade e Cookies do site FSA⁴Future (07-10-2026)" na pasta FSA4FUTURE do Drive | Cátia → advogado | À espera do advogado |
+| — | Fotos reais (hoje: espaços reservados listrados) e cases autorizados. 07/10: ainda sem autorização dos clientes; site segue com espaços reservados | FSA | À espera de autorização |
 | — | Portal do Parceiro (handoff §27.3–27.11): sistema com login, contrato e comissões — fora do escopo desta fase | — | Backlog pós-lançamento |
 | — | Auditoria final de dependências/arquivos não usados (tarefa 9) | Implementação | 06/10 (terminal): único arquivo sem uso era `assets/logo/fsa4future-symbol-dark.svg` (removido; o original está no Drive, Logo v0). Licenças, robots.txt e sitemap.xml ficam (não são referenciados por página, mas são necessários). Nenhum recurso de terceiros na abertura: Calendly só ao escolher agendar; WhatsApp e Google Agenda só em links. Repetir antes do go-live |
 

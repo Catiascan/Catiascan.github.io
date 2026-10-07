@@ -47,7 +47,7 @@ Siga `docs/fsa4future/operacao-atendimento.md`: domínio no CNPJ da FSA IT4FUTUR
 Procure arquivos não referenciados em `fsa4future/` e dependências não usadas; o site não deve carregar nada de terceiros na abertura (Calendly só ao agendar).
 
 ## Pendências que dependem da FSA (não invente)
-Fotos reais em colaboração e cases autorizados · telefones, WhatsApp Business e ferramenta de agenda · leitura jurídica das políticas · validação da Visão (hoje fora do site) · acesso ao analytics e Search Console e inventário do site atual · nomes do 2º responsável e da contingência do atendimento@.
+Fotos reais em colaboração e cases autorizados · telefones, WhatsApp Business e ferramenta de agenda · leitura jurídica das políticas · acesso ao analytics e Search Console e inventário do site atual · nomes do 2º responsável e da contingência do atendimento@.
 
 ## Regra de entrega
 Ao terminar cada bloco, atualize `docs/fsa4future/QA-LOG.md` (achados QA-###, com ambiente, esperado × observado, evidência e correção), faça commit e push na branch `claude/epic-wright-n7cptm` e informe em uma linha o que foi feito, o que falta e o próximo bloco.

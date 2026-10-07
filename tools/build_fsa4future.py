@@ -456,7 +456,8 @@ sobre = f'''
 </div></section>
 <section class="section--md bg-petrol" aria-labelledby="h-prop"><div class="container grid-2">
 <div class="stack-sm">{eyebrow("Propósito", True)}<h2 class="h3" id="h-prop">Transformar desafios de negócio em possibilidades por meio da tecnologia, construindo o futuro junto com as pessoas.</h2></div>
-<div class="stack"><div class="stack-sm"><span class="label-up inv-muted">Promessa</span><p class="lead inv">Você traz o desafio. A gente encontra, conecta ou constrói a tecnologia para resolvê-lo.</p></div>
+<div class="stack"><div class="stack-sm"><span class="label-up inv-muted">Visão</span><p class="lead inv">Ser o hub de tecnologia e negócios que as empresas procuram primeiro quando precisam resolver um desafio de verdade.</p></div>
+<div class="stack-sm"><span class="label-up inv-muted">Promessa</span><p class="lead inv">Você traz o desafio. A gente encontra, conecta ou constrói a tecnologia para resolvê-lo.</p></div>
 <div class="stack-sm"><span class="label-up inv-muted">Crença</span><p class="lead inv">Seu desafio não precisa caber em uma solução pronta.</p></div></div>
 </div></section>
 <section class="section--md" aria-labelledby="h-pil"><div class="container stack-lg">
