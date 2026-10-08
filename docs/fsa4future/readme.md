@@ -3,7 +3,7 @@
 **FSA⁴Future · Technology & Business Hub**, o rebranding da FSA Soluções em Tecnologia (+20 anos em consultoria e tecnologia).
 Assinatura: **Technology 4 what's next.** · Frase de campanha: **Ideias em movimento. Impacto no futuro.**
 
-Atualizado em 06/10/2026. Substitui o README do Design System v1 de 29/09 (que ainda usava "FSA 4 Future · Technology Hub" e dizia que não havia logo).
+Atualizado em 08/10/2026. Substitui o README do Design System v1 de 29/09 (que ainda usava "FSA 4 Future · Technology Hub" e dizia que não havia logo).
 
 ## Decisões fechadas (não reabrir nesta fase)
 - **Nome:** FSA⁴Future em tudo. Frentes: FSA⁴Flow, FSA⁴Partners, FSA⁴Solutions, FSA⁴Products. IA, cloud, dados, automação, integrações e segurança são capacidades transversais, não submarcas.
@@ -21,7 +21,7 @@ Atualizado em 06/10/2026. Substitui o README do Design System v1 de 29/09 (que a
 | `fsa4future/` | Site V1 estático gerado (pronto para subir na raiz de fsa4future.com.br). Homologação: `https://catiascan.github.io/fsa4future/` |
 | `tools/build_fsa4future.py` | Gerador (Python 3.12+, sem dependências). Conteúdo, metadados, schema e fichas ficam aqui. `--prod` gera a versão indexável |
 | `fsa4future/assets/css/site.css` | Tokens + componentes do DS v1.1 num arquivo; blocos `IMPL QA-###` são ajustes de implementação |
-| `fsa4future/assets/js/site.js` | Menu, consentimento + eventos, FSiA, fluxo Conversar, confirmação. `CONFIG` no topo concentra canais pendentes |
+| `fsa4future/assets/js/site.js` | Menu, consentimento + eventos, FSiA, fluxo Conversar, confirmação. `CONFIG` no topo concentra os canais; hoje com os contatos **provisórios** da FSA, (12) 3351-9958 e catia@fsasolucoes.com.br (QA-019) |
 | `fsa4future/assets/icons/sprite.svg` | 28 ícones Lucide 0.460.0 auto-hospedados (QA-001) |
 | `fsa4future/assets/fonts/` | Montserrat woff2 auto-hospedada (OFL) — sem Google Fonts, por LGPD e performance |
 | `fsa4future/assets/logo/` | Logo v0 oficial (06/10/2026), com os nomes do v0: lockup do header e do rodapé, símbolo, favicons. Revisão óptica: QA-002 |
@@ -33,7 +33,7 @@ Atualizado em 06/10/2026. Substitui o README do Design System v1 de 29/09 (que a
 
 ## Site V1 — páginas
 Home · Desafios · Como fazemos (+ 6 etapas com anterior/próxima) · Hub (+ 4 frentes, com abas entre elas) · Programa de Parceiros (página pública) · Cases · Sobre · Conteúdos · Conversar (+ confirmação) · Política de Privacidade · Política de Cookies · 404.
-Cases e Conteúdos estão `noindex` até ter o primeiro case autorizado e o primeiro artigo. As políticas estão `noindex` e marcadas como rascunho até a leitura jurídica.
+A página Sobre já traz a Visão aprovada (QA-016). Cases e Conteúdos estão `noindex` até ter o primeiro case autorizado e o primeiro artigo. As políticas estão `noindex` e marcadas como rascunho até a resposta do advogado (leitura preliminar feita em 07/10).
 
 ## FSiA
 Roteiro fechado a partir da `FSiA_Base_de_Conhecimento_v1` (sem modelo de linguagem nesta fase, o que garante os limites): abertura e 4 opções; até 5 perguntas do OUVIR, uma por vez; sugestão de frente sempre como "sugestão, não diagnóstico"; respostas fixas para preço, prazo, viabilidade, dados sensíveis, vagas, privacidade e tentativa de mudar as regras; handoff humano a qualquer momento por agenda, WhatsApp, e-mail ou telefone. O resumo da conversa só vai junto se a pessoa disser "sim" — no link do WhatsApp, no corpo do e-mail ou como resposta 1 no Calendly. Não cita prazo de resposta.
