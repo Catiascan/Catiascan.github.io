@@ -59,6 +59,10 @@ Numa sessão do Claude, a Cátia pode pedir em linguagem natural, por exemplo:
 - "Saldo PJ hoje: Inter 12.000, Itaú 3.000" → `config/geral.saldo_pj`
 - "O que vence esta semana?" / "Como estamos contra o budget em setembro?" → leitura e resposta
 
+Os extratos ficam no Google Drive da Cátia, pasta **Extratos** (dentro da pasta do financeiro), em PDF, CSV ou TXT por conta (Inter PJ, Inter PF, Itaú PJ). Antes de dar baixa ou corrigir um valor duvidoso, o Claude confere ali.
+
+A Educbank vem em 4 boletos por mês: mensalidade e material da Sophia e da Nina.
+
 O Claude escreve com a ferramenta `ArtifactData` no URL acima, sempre fixando `if_version`
 do documento lido, para não pisar alterações feitas no app.
 
