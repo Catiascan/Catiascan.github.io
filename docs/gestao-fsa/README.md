@@ -28,7 +28,7 @@ Vive como artifact privado no claude.ai, com base de dados própria:
 - `budget/b-NN` — `secao, item, ordem, meses[12]`
 - `clientes/cli-<nome>` — `nome, status, tipo (Recorrente | Projeto fechado), caixa_pj (bool), inicio/fim (aaaa-mm), valor_mensal | previsto{mai..dez}, contato, obs`
 - `passivo/pv-NN` — `divida, direcao, fase, original, negociavel, status, obs`
-- `config/geral` — `saldo_pj, saldo_piso, saldo_obs, saldo_data, fonte, importado_em, prolabore_meta, investimento_comercial, metricas_periodo, margem_contribuicao`
+- `config/geral` — `saldo_pj, saldo_piso, saldo_obs, saldo_data, fonte, importado_em, prolabore_meta, mkt_palavra, mkt_percentual, mkt_desde, investimento_comercial, metricas_periodo, margem_contribuicao`
 - `abas/<aba>` — cópia fiel de cada aba (`linhas: [{c: [...]}]`)
 
 O NNNN dos ids é a linha da planilha de origem; registos criados no app têm id gerado e `origem: "app"`.
@@ -48,7 +48,7 @@ para mapear ficou em **A classificar** (36 na importação de 11/10/2026).
 - **Falta entrar para fechar as contas** = contas a pagar em aberto até dezembro − saldo PJ de hoje.
 - **Fluxo projetado**: entradas = clientes ativos com `caixa_pj` (no mês atual, menos a receita já recebida); saídas = contas em aberto, com as atrasadas no mês atual. Contas a receber ficam fora até caírem no extrato.
 - **Ponto de equilíbrio** = custos orçados do mês + `prolabore_meta` (R$ 6.000) quando o mês não tem pró-labore orçado. É a mesma conta da linha "Break-even c/ pró-labore ATUAL" da planilha.
-- **Churn** = clientes perdidos ÷ clientes-mês ativos no período; **tempo de vida** = 1 ÷ churn; **LTV** = ticket × margem × tempo de vida; **CAC** = investimento comercial ÷ clientes novos. Cliente sem `inicio` conta como já existente antes do período.
+- **Churn** = clientes perdidos ÷ clientes-mês ativos no período; **tempo de vida** = 1 ÷ churn; **LTV** = ticket × margem × tempo de vida; **CAC** = investimento comercial ÷ clientes novos desde `mkt_desde`. O investimento vem das contas a pagar: `mkt_percentual`% das contas cuja descrição contém `mkt_palavra` (hoje 10% da assinatura Anthropic, desde 2026-08), mais `investimento_comercial` manual. Cliente sem `inicio` conta como já existente antes do período.
 
 ## Como o Claude opera o app
 
