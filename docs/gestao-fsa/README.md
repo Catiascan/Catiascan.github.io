@@ -23,7 +23,7 @@ Vive como artifact privado no claude.ai, com base de dados própria:
 ## Base de dados (coleções)
 
 - `lancamentos/rd-NNNN` — `data, mes, banco, descricao, valor (negativo = saída), grupo, sub, categoria_original, modo, cliente, tag, recorrente (bool; ausente = pontual), origem`
-- `pagar/cp-NNNN` — `vencimento, mes, descricao, categoria, previsto, conta, baixa, pago, estado, codigo, no_registro, obs` (sem `codigo`, o app procura o código de barras nas obs). `conta` = de onde sai o pagamento, sempre um destes: Inter PJ, Itau PJ, Itau PJ FSA4Future (em abertura), Inter PF Catia, PF Fernando, Cartao de credito, Cartao Daise, A definir
+- `pagar/cp-NNNN` — `vencimento, mes, descricao, categoria, previsto, conta, baixa, pago, estado, codigo, no_registro, obs` (sem `codigo`, o app procura o código de barras nas obs). `conta` = de onde sai o pagamento, sempre um destes: Inter PJ, Itau PJ, Itau PJ FSA4Future (em abertura), Inter PF Catia, PF Fernando, Cartao Mercado Livre (Fernando), Cartao Daise, Cartao de credito, A definir. A assinatura do Claude vai no cartão Mercado Livre do Fernando: é custo da PJ, a baixa fica "PAGO PF - RESTITUIR" e conta no fluxo da PJ (o nome não leva "PF" de propósito)
 - `receber/cr-NNNN` — `devedor, total, ja_pago, aberto, previsto, estado, baixa, obs`
 - `budget/b-NN` — `secao, item, ordem, meses[12]`
 - `clientes/cli-<nome>` — `nome, status, tipo (Recorrente | Projeto fechado), caixa_pj (bool), inicio/fim (aaaa-mm), valor_mensal | previsto{mai..dez}, contato, obs`
