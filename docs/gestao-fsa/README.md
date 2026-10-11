@@ -25,7 +25,7 @@ As regras e decisões anteriores estão nas sessões do Claude Code "Ordem de co
 | Painel | Mes_Atual, Painel_Risco, Meta_Crescimento | Visão Mês ou Ano; saldo PJ, quanto falta entrar para fechar as contas, fluxo de caixa projetado até dezembro, ponto de equilíbrio, alertas (sempre a vermelho), próximos vencimentos com código de pagamento |
 | Lançamentos | Registro_Diario | Movimento dos extratos com plano de contas único; filtro por mês, banco, grupo; reclassificar numa linha |
 | Contas a pagar | Contas_a_Pagar, Custos_Fixos | Estado calculado (atrasada quando vence sem baixa); "Dar baixa" cria o lançamento no extrato |
-| Contas a receber | Contas_a_Receber | "Receber" baixa o crédito e cria o lançamento de receita |
+| Contas a receber | Contas_a_Receber | Provisionado do mês (parcela prevista de cada cliente ativo × o que já entrou nos lançamentos, com vencimento pelo `dia_pagamento`) e outros créditos avulsos; "Receber" cria o lançamento de receita |
 | Budget 2026 | Budget_2026 | Grelha editável; totais, resultado e acumulado recalculados; linha de realizado vinda dos lançamentos |
 | Pendências | (antiga aba de pendências) | O que falta acertar, com quem está, urgência; resolver/reabrir |
 | Métricas | (nova) | MRR, ARR, ticket, churn de clientes e de receita, tempo de vida, LTV, CAC, LTV÷CAC, payback, concentração, receita recorrente × pontual |
@@ -39,7 +39,7 @@ As regras e decisões anteriores estão nas sessões do Claude Code "Ordem de co
 - `pagar/cp-NNNN` — `vencimento, mes, descricao, categoria, previsto, conta, baixa, pago, estado, codigo, no_registro, obs` (sem `codigo`, o app procura o código de barras nas obs). `conta` = de onde sai o pagamento, sempre um destes: Inter PJ, Itau PJ, Itau PJ FSA4Future (em abertura), Inter PF Catia, PF Fernando, Cartao Mercado Livre (Fernando), Cartao Daise, Cartao de credito, A definir. A assinatura do Claude vai no cartão Mercado Livre do Fernando: é custo da PJ, a baixa fica "PAGO PF - RESTITUIR" e conta no fluxo da PJ (o nome não leva "PF" de propósito). Cartão da Daise: é um adicional que a Daise (mãe do Fernando) deu ao Fernando; ele paga a fatura pela PF dele, com o que entra dos freelas (JB e Moriah, que não faturam). A FSA só reembolsa o Fernando por servidor e pedágio, que vão como "Cartao Daise (reembolso PJ)" e contam no fluxo da PJ. O resto (carro, refinanciamento, conserto) vai como "Cartao Daise (PF Fernando)" ou "PF Fernando" e fica fora do fluxo da PJ
 - `receber/cr-NNNN` — `devedor, total, ja_pago, aberto, previsto, estado, baixa, obs`
 - `budget/b-NN` — `secao, item, ordem, meses[12]`
-- `clientes/cli-<nome>` — `nome, status, tipo (Recorrente | Projeto fechado), caixa_pj (bool), inicio/fim (aaaa-mm), valor_mensal | previsto{mai..dez}, contato, obs`
+- `clientes/cli-<nome>` — `nome, status, tipo (Recorrente | Projeto fechado), caixa_pj (bool), empresa (57 | 05), dia_pagamento, inicio/fim (aaaa-mm), valor_mensal | previsto{mai..dez}, contato, obs`
 - `passivo/pv-NN` — `divida, direcao, fase, original, negociavel, status, obs`
 - `config/geral` — `saldo_pj, saldo_piso, saldo_obs, saldo_data, fonte, importado_em, saldo_pj_05, prolabore_meta, mkt_palavra, mkt_percentual, mkt_desde, investimento_comercial, metricas_periodo, margem_contribuicao`
 - `pendencias/<id>` — `titulo, detalhe, dono (Cátia | Fernando | Contador (ScaleYou) | Claude), empresa, urgente, status (Aberta | Resolvida), desde, resolvida_em, resolucao`
