@@ -6,6 +6,18 @@ Vive como artifact privado no claude.ai, com base de dados própria:
 - App: https://claude.ai/artifact/4demuMvq1UgX3Ych8oUjcY (só a dona da conta abre)
 - Os dados **não** ficam neste repositório, que é público. `.seed/` e `*.xlsx` estão no `.gitignore`.
 
+## Empresas
+
+| Código | Empresa | CNPJ | Contas |
+|---|---|---|---|
+| 57 | FSA (a do Budget mestre) | 37.281.099/0001-57 | Inter PJ e Itaú PJ (as duas são do 57, dito pela Cátia a 28/09) |
+| 05 | FSA⁴Future — FSA IT4FUTURE HUB TECNOLOGIA LTDA | 69.447.199/0001-05 | Itaú PJ FSA4Future (em abertura) |
+| PF | Pessoal | — | Inter PF Cátia; PF Fernando (BB, onde entram JB e Moriah, que não faturam) |
+
+O app tem um seletor no topo (Consolidado · 57 · 05). A empresa de cada conta a pagar e lançamento sai da conta ("FSA4Future" no nome = 05; "PF" = pessoal; o resto = 57). Clientes têm o campo `empresa` (padrão 57). O Budget 2026 é só do 57.
+
+As regras e decisões anteriores estão nas sessões do Claude Code "Ordem de correção do Budget", "Budget FSA célula por célula", "FSA Budget cadeia completa análise" (28/09), "Budget_FSA_Hub — Conciliação setembro" (18/09), "Budget_FSA_Hub reconciliação setembro" (11/09), "Página desatualizada: agenda e pendências" (19/09) e "Decisões técnicas setembro FSA" (07/10), e na skill `financeiro-fsa`. As decisões D1–D16 da Cátia não se reabrem.
+
 ## Módulos
 
 | Módulo | Substitui as abas | O que faz |
@@ -15,6 +27,7 @@ Vive como artifact privado no claude.ai, com base de dados própria:
 | Contas a pagar | Contas_a_Pagar, Custos_Fixos | Estado calculado (atrasada quando vence sem baixa); "Dar baixa" cria o lançamento no extrato |
 | Contas a receber | Contas_a_Receber | "Receber" baixa o crédito e cria o lançamento de receita |
 | Budget 2026 | Budget_2026 | Grelha editável; totais, resultado e acumulado recalculados; linha de realizado vinda dos lançamentos |
+| Pendências | (antiga aba de pendências) | O que falta acertar, com quem está, urgência; resolver/reabrir |
 | Métricas | (nova) | MRR, ARR, ticket, churn de clientes e de receita, tempo de vida, LTV, CAC, LTV÷CAC, payback, concentração, receita recorrente × pontual |
 | Clientes | Receitas_Esperadas | Funil Prospect → Proposta → Ativo → Encerrado, recebido por cliente |
 | Dívidas | Passivo, parcelas | Passivo por fase e parcelas de tributos/empréstimos em aberto |
@@ -28,7 +41,8 @@ Vive como artifact privado no claude.ai, com base de dados própria:
 - `budget/b-NN` — `secao, item, ordem, meses[12]`
 - `clientes/cli-<nome>` — `nome, status, tipo (Recorrente | Projeto fechado), caixa_pj (bool), inicio/fim (aaaa-mm), valor_mensal | previsto{mai..dez}, contato, obs`
 - `passivo/pv-NN` — `divida, direcao, fase, original, negociavel, status, obs`
-- `config/geral` — `saldo_pj, saldo_piso, saldo_obs, saldo_data, fonte, importado_em, prolabore_meta, mkt_palavra, mkt_percentual, mkt_desde, investimento_comercial, metricas_periodo, margem_contribuicao`
+- `config/geral` — `saldo_pj, saldo_piso, saldo_obs, saldo_data, fonte, importado_em, saldo_pj_05, prolabore_meta, mkt_palavra, mkt_percentual, mkt_desde, investimento_comercial, metricas_periodo, margem_contribuicao`
+- `pendencias/<id>` — `titulo, detalhe, dono (Cátia | Fernando | Contador (ScaleYou) | Claude), empresa, urgente, status (Aberta | Resolvida), desde, resolvida_em, resolucao`
 - `abas/<aba>` — cópia fiel de cada aba (`linhas: [{c: [...]}]`)
 
 O NNNN dos ids é a linha da planilha de origem; registos criados no app têm id gerado e `origem: "app"`.
