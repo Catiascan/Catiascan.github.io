@@ -22,7 +22,7 @@ As regras e decisões anteriores estão nas sessões do Claude Code "Ordem de co
 
 | Módulo | Substitui as abas | O que faz |
 |---|---|---|
-| Painel | Mes_Atual, Painel_Risco, Meta_Crescimento | Visão Mês ou Ano; saldo PJ, quanto falta entrar para fechar as contas, fluxo de caixa projetado até dezembro, ponto de equilíbrio, alertas (sempre a vermelho), próximos vencimentos com código de pagamento |
+| Painel | Mes_Atual, Painel_Risco, Meta_Crescimento | Visão Mês ou Ano; saldo PJ, quanto falta entrar para fechar as contas, fluxo de caixa projetado até dezembro, ponto de equilíbrio, alertas (sempre a vermelho), próximos vencimentos com código de pagamento, "Para onde foi o dinheiro" (saídas por grupo e por natureza: operação, sócios e pessoal, dívidas e impostos, a classificar; segue Mês/Ano e a empresa; clicar abre os lançamentos) |
 | Lançamentos | Registro_Diario | Movimento dos extratos com plano de contas único; filtro por mês, banco, grupo; reclassificar numa linha |
 | Contas a pagar | Contas_a_Pagar, Custos_Fixos | Estado calculado (atrasada quando vence sem baixa); "Dar baixa" cria o lançamento no extrato |
 | Contas a receber | Contas_a_Receber | Provisionado do mês (parcela prevista de cada cliente ativo × o que já entrou nos lançamentos, com vencimento pelo `dia_pagamento`) e outros créditos avulsos; "Receber" cria o lançamento de receita |
