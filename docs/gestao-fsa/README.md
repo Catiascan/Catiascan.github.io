@@ -23,7 +23,7 @@ Vive como artifact privado no claude.ai, com base de dados própria:
 ## Base de dados (coleções)
 
 - `lancamentos/rd-NNNN` — `data, mes, banco, descricao, valor (negativo = saída), grupo, sub, categoria_original, modo, cliente, tag, recorrente (bool; ausente = pontual), origem`
-- `pagar/cp-NNNN` — `vencimento, mes, descricao, categoria, previsto, conta, baixa, pago, estado, codigo, no_registro, obs` (sem `codigo`, o app procura o código de barras nas obs)
+- `pagar/cp-NNNN` — `vencimento, mes, descricao, categoria, previsto, conta, baixa, pago, estado, codigo, no_registro, obs` (sem `codigo`, o app procura o código de barras nas obs). `conta` = de onde sai o pagamento, sempre um destes: Inter PJ, Itau PJ, Itau PJ FSA4Future (em abertura), Inter PF Catia, PF Fernando, Cartao de credito, Cartao Daise, A definir
 - `receber/cr-NNNN` — `devedor, total, ja_pago, aberto, previsto, estado, baixa, obs`
 - `budget/b-NN` — `secao, item, ordem, meses[12]`
 - `clientes/cli-<nome>` — `nome, status, tipo (Recorrente | Projeto fechado), caixa_pj (bool), inicio/fim (aaaa-mm), valor_mensal | previsto{mai..dez}, contato, obs`
@@ -46,7 +46,7 @@ para mapear ficou em **A classificar** (36 na importação de 11/10/2026).
 ## Fórmulas
 
 - **Falta entrar para fechar as contas** = contas a pagar em aberto até dezembro − saldo PJ de hoje.
-- **Fluxo projetado**: entradas = clientes ativos com `caixa_pj` (no mês atual, menos a receita já recebida); saídas = contas em aberto, com as atrasadas no mês atual. Contas a receber ficam fora até caírem no extrato.
+- **Fluxo projetado**: entradas = clientes ativos com `caixa_pj` (no mês atual, menos a receita já recebida); saídas = contas em aberto que saem de conta PJ, com as atrasadas no mês atual. Contas pagas pela PF (escola, van, ballet) ficam fora, porque saem do pró-labore, que já é saída da PJ. Contas a receber ficam fora até caírem no extrato.
 - **Ponto de equilíbrio** = custos orçados do mês + `prolabore_meta` (R$ 6.000) quando o mês não tem pró-labore orçado. É a mesma conta da linha "Break-even c/ pró-labore ATUAL" da planilha.
 - **Churn** = clientes perdidos ÷ clientes-mês ativos no período; **tempo de vida** = 1 ÷ churn; **LTV** = ticket × margem × tempo de vida; **CAC** = investimento comercial ÷ clientes novos desde `mkt_desde`. O investimento vem das contas a pagar: `mkt_percentual`% das contas cuja descrição contém `mkt_palavra` (hoje 10% da assinatura Anthropic, desde 2026-08), mais `investimento_comercial` manual. Cliente sem `inicio` conta como já existente antes do período.
 
@@ -61,7 +61,7 @@ Numa sessão do Claude, a Cátia pode pedir em linguagem natural, por exemplo:
 
 Os extratos ficam no Google Drive da Cátia, pasta **Extratos** (dentro da pasta do financeiro), em PDF, CSV ou TXT por conta (Inter PJ, Inter PF, Itaú PJ). Antes de dar baixa ou corrigir um valor duvidoso, o Claude confere ali.
 
-A Educbank vem em 4 boletos por mês: mensalidade e material da Sophia e da Nina.
+A Educbank vem em 4 boletos por mês: mensalidade e material da Sophia e da Nina. Escola, van e ballet são pagos pelo Inter PF da Cátia; a baixa de despesa pessoal pela PF fica PAGO (não "restituir"). A rematrícula de outubro sai da PJ.
 
 O Claude escreve com a ferramenta `ArtifactData` no URL acima, sempre fixando `if_version`
 do documento lido, para não pisar alterações feitas no app.
