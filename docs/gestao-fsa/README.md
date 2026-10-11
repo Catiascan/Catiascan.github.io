@@ -10,24 +10,25 @@ Vive como artifact privado no claude.ai, com base de dados própria:
 
 | Módulo | Substitui as abas | O que faz |
 |---|---|---|
-| Painel | Mes_Atual, Painel_Risco | Saldo PJ, contas em aberto do mês, saldo projetado contra o piso, atrasadas, alertas, gráfico budget × realizado |
+| Painel | Mes_Atual, Painel_Risco, Meta_Crescimento | Visão Mês ou Ano; saldo PJ, quanto falta entrar para fechar as contas, fluxo de caixa projetado até dezembro, ponto de equilíbrio, alertas (sempre a vermelho), próximos vencimentos com código de pagamento |
 | Lançamentos | Registro_Diario | Movimento dos extratos com plano de contas único; filtro por mês, banco, grupo; reclassificar numa linha |
 | Contas a pagar | Contas_a_Pagar, Custos_Fixos | Estado calculado (atrasada quando vence sem baixa); "Dar baixa" cria o lançamento no extrato |
 | Contas a receber | Contas_a_Receber | "Receber" baixa o crédito e cria o lançamento de receita |
 | Budget 2026 | Budget_2026 | Grelha editável; totais, resultado e acumulado recalculados; linha de realizado vinda dos lançamentos |
+| Métricas | (nova) | MRR, ARR, ticket, churn de clientes e de receita, tempo de vida, LTV, CAC, LTV÷CAC, payback, concentração, receita recorrente × pontual |
 | Clientes | Receitas_Esperadas | Funil Prospect → Proposta → Ativo → Encerrado, recebido por cliente |
 | Dívidas | Passivo, parcelas | Passivo por fase e parcelas de tributos/empréstimos em aberto |
 | Planilha original | todas as 24 abas | Cópia só de leitura, tal como estavam na importação |
 
 ## Base de dados (coleções)
 
-- `lancamentos/rd-NNNN` — `data, mes, banco, descricao, valor (negativo = saída), grupo, sub, categoria_original, modo, cliente, tag, origem`
-- `pagar/cp-NNNN` — `vencimento, mes, descricao, categoria, previsto, conta, baixa, pago, estado, no_registro, obs`
+- `lancamentos/rd-NNNN` — `data, mes, banco, descricao, valor (negativo = saída), grupo, sub, categoria_original, modo, cliente, tag, recorrente (bool; ausente = pontual), origem`
+- `pagar/cp-NNNN` — `vencimento, mes, descricao, categoria, previsto, conta, baixa, pago, estado, codigo, no_registro, obs` (sem `codigo`, o app procura o código de barras nas obs)
 - `receber/cr-NNNN` — `devedor, total, ja_pago, aberto, previsto, estado, baixa, obs`
 - `budget/b-NN` — `secao, item, ordem, meses[12]`
-- `clientes/cli-<nome>` — `nome, status, valor_mensal | previsto{mai..dez}, contato, obs`
+- `clientes/cli-<nome>` — `nome, status, tipo (Recorrente | Projeto fechado), caixa_pj (bool), inicio/fim (aaaa-mm), valor_mensal | previsto{mai..dez}, contato, obs`
 - `passivo/pv-NN` — `divida, direcao, fase, original, negociavel, status, obs`
-- `config/geral` — `saldo_pj, saldo_piso, saldo_obs, saldo_data, fonte, importado_em`
+- `config/geral` — `saldo_pj, saldo_piso, saldo_obs, saldo_data, fonte, importado_em, prolabore_meta, investimento_comercial, metricas_periodo, margem_contribuicao`
 - `abas/<aba>` — cópia fiel de cada aba (`linhas: [{c: [...]}]`)
 
 O NNNN dos ids é a linha da planilha de origem; registos criados no app têm id gerado e `origem: "app"`.
@@ -41,6 +42,13 @@ Estorno · A classificar.
 Transferência, Estorno e Rendimento/Aplicação ficam fora do "realizado" (não são operação).
 As 45 grafias de categoria da planilha foram mapeadas por `tools/gestao_fsa/convert.py`; o que não deu
 para mapear ficou em **A classificar** (36 na importação de 11/10/2026).
+
+## Fórmulas
+
+- **Falta entrar para fechar as contas** = contas a pagar em aberto até dezembro − saldo PJ de hoje.
+- **Fluxo projetado**: entradas = clientes ativos com `caixa_pj` (no mês atual, menos a receita já recebida); saídas = contas em aberto, com as atrasadas no mês atual. Contas a receber ficam fora até caírem no extrato.
+- **Ponto de equilíbrio** = custos orçados do mês + `prolabore_meta` (R$ 6.000) quando o mês não tem pró-labore orçado. É a mesma conta da linha "Break-even c/ pró-labore ATUAL" da planilha.
+- **Churn** = clientes perdidos ÷ clientes-mês ativos no período; **tempo de vida** = 1 ÷ churn; **LTV** = ticket × margem × tempo de vida; **CAC** = investimento comercial ÷ clientes novos. Cliente sem `inicio` conta como já existente antes do período.
 
 ## Como o Claude opera o app
 
