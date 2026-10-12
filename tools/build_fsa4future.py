@@ -160,7 +160,7 @@ def hub_card(f, level='h3'):
 
 def cta_final(title='Qual desafio precisamos resolver juntos?'):
     return f'''<section class="section--md" aria-labelledby="cta-final">
-<div class="container grid-split" style="align-items:end">
+<div class="container grid-split">
 <div class="stack-sm"><h2 class="h2" id="cta-final">{title}</h2><p class="lead">Conte um pouco sobre o seu desafio. <strong class="strong">Não precisa saber qual tecnologia usar. Essa parte a gente descobre junto.</strong></p></div>
 <div>{cta_main()}</div>
 </div></section>'''
@@ -184,7 +184,7 @@ method_panels = ''.join(
     for i, s in enumerate(STEPS))
 
 home = f'''
-<section class="section" style="padding-top:112px" aria-labelledby="h1">
+<section class="section" style="padding-top:80px" aria-labelledby="h1">
 <div class="container grid-hero">
 <div class="stack" style="gap:28px">
 {eyebrow(NAME + ' · ' + DESC)}
@@ -197,8 +197,8 @@ home = f'''
 {photo("cliente e time FSA em workshop", tall=True)}
 </div></section>
 
-<section class="section bg-petrol" style="padding:120px 0" aria-labelledby="h-ia">
-<div class="container grid-split" style="align-items:end">
+<section class="section bg-petrol" aria-labelledby="h-ia">
+<div class="container grid-split">
 <h2 class="h2" id="h-ia">Nem todo problema se resolve com IA. <span class="inv-accent">Mas todo problema precisa ser resolvido.</span></h2>
 <div class="stack-sm"><p class="lead strong inv">Não começamos pela tecnologia da vez. Começamos pelo que o seu negócio precisa.</p><p class="inv-muted">Às vezes a resposta é IA. Às vezes é automação, integração, dados, cloud ou desenvolvimento full-code. Muitas vezes, é uma combinação de diferentes capacidades.</p></div>
 </div></section>
@@ -222,7 +222,7 @@ home = f'''
 <div class="stack"><ul class="chips" role="list" style="list-style:none;margin:0;padding:0">{"".join(f'<li class="f4-chip f4-chip--static">{c}</li>' for c in CAPS)}</ul><p class="lead strong brand">Não precisamos escolher uma dessas caixas. Podemos conectá-las.</p></div>
 </div></section>
 
-<section class="section bg-sand300" style="padding:112px 0" aria-labelledby="h-prova">
+<section class="section bg-sand300" aria-labelledby="h-prova">
 <div class="container grid-3 cols-proof">
 <h2 class="h3" id="h-prova" style="font-size:40px;line-height:48px">Mais de duas décadas resolvendo problemas que não vêm com manual.</h2>
 <div class="stat"><div class="stat__n">+20</div><p class="small" style="color:var(--graphite-700)">anos de experiência em tecnologia e consultoria</p></div>
@@ -268,10 +268,10 @@ desafios = f'''
 <div class="container stack">
 {crumbs([("Home", "{R}"), ("Desafios", "")])}
 <div class="grid-split"><div class="stack">{eyebrow("Desafios")}<h1 class="h1" id="h1">Cada negócio tem um desafio. Cada desafio pede seu próprio caminho.</h1></div>
-<p class="lead" style="align-self:end">Estes são alguns dos desafios que chegam até a FSA. O seu pode ser parecido, diferente ou ainda não estar claro. Em qualquer caso, a conversa começa pelo que o seu negócio precisa.</p></div>
+<p class="lead">Estes são alguns dos desafios que chegam até a FSA. O seu pode ser parecido, diferente ou ainda não estar claro. Em qualquer caso, a conversa começa pelo que o seu negócio precisa.</p></div>
 </div></section>
 <section class="section--md bg-sand100" aria-label="Desafios frequentes"><div class="container grid-2" style="gap:24px">{ch_cards}</div></section>
-<section class="section--md" aria-labelledby="h-perg"><div class="container grid-2">
+<section class="section--md" aria-labelledby="h-perg"><div class="container stack-lg stacked">
 <h2 class="h2" id="h-perg">Perguntas que a gente ajuda a responder.</h2>
 <ul class="list-check">{"".join(f'<li>{ic("check", 18)}<span>{q}</span></li>' for q in QUESTIONS)}</ul>
 </div></section>
@@ -336,7 +336,7 @@ hub = f'''
 <section class="section--md" aria-labelledby="h1"><div class="container stack">
 {crumbs([("Home", "{R}"), ("Hub", "")])}
 <div class="grid-split"><div class="stack">{eyebrow("Hub")}<h1 class="h1" id="h1">Um hub. Diferentes caminhos para resolver.</h1></div>
-<p class="lead" style="align-self:end">Quatro frentes, um mesmo ponto de partida: o seu desafio. IA, cloud, dados, desenvolvimento, automação, integrações e segurança são capacidades que atravessam todas elas.</p></div>
+<p class="lead">Quatro frentes, um mesmo ponto de partida: o seu desafio. IA, cloud, dados, desenvolvimento, automação, integrações e segurança são capacidades que atravessam todas elas.</p></div>
 </div></section>
 <section class="section--md bg-sand100" aria-label="Frentes do hub"><div class="container grid-4">{"".join(hub_card(f, "h2") for f in FRONTS)}</div></section>
 <section class="section--md" aria-labelledby="h-conn"><div class="container grid-2" style="align-items:center">
@@ -427,7 +427,7 @@ cases = f'''
 <section class="section--md" aria-labelledby="h1"><div class="container stack">
 {crumbs([("Home", "{R}"), ("Cases", "")])}
 <div class="grid-split"><div class="stack">{eyebrow("Cases")}<h1 class="h1" id="h1">Mais de duas décadas resolvendo problemas que não vêm com manual.</h1></div>
-<p class="lead" style="align-self:end">Os cases da FSA estão em autorização com os clientes. Cada um será publicado com a história completa e com resultados comprováveis, sem números inventados.</p></div>
+<p class="lead">Os cases da FSA estão em autorização com os clientes. Cada um será publicado com a história completa e com resultados comprováveis, sem números inventados.</p></div>
 </div></section>
 <section class="section--md bg-sand100" aria-labelledby="h-formato"><div class="container stack-lg">
 <h2 class="h3" id="h-formato">Como cada case será contado.</h2>
@@ -452,7 +452,7 @@ sobre = f'''
 <section class="section--md" aria-labelledby="h1"><div class="container stack">
 {crumbs([("Home", "{R}"), ("Sobre", "")])}
 <div class="grid-split"><div class="stack">{eyebrow("Sobre")}<h1 class="h1" id="h1">Tecnologia construída junto, para resolver o que importa agora e preparar o que vem depois.</h1></div>
-<div class="stack" style="align-self:end"><p class="lead">A {NAME_HTML} é um Technology &amp; Business Hub que combina experiência, proximidade e diferentes capacidades tecnológicas para entender, desenhar e construir soluções para desafios reais de negócio.</p><p>Com mais de 20 anos de experiência em consultoria e tecnologia como FSA Soluções em Tecnologia, atua da descoberta à execução, conectando competências próprias, parceiros e diferentes tecnologias conforme cada necessidade.</p></div></div>
+<div class="stack"><p class="lead">A {NAME_HTML} é um Technology &amp; Business Hub que combina experiência, proximidade e diferentes capacidades tecnológicas para entender, desenhar e construir soluções para desafios reais de negócio.</p><p>Com mais de 20 anos de experiência em consultoria e tecnologia como FSA Soluções em Tecnologia, atua da descoberta à execução, conectando competências próprias, parceiros e diferentes tecnologias conforme cada necessidade.</p></div></div>
 </div></section>
 <section class="section--md bg-petrol" aria-labelledby="h-prop"><div class="container grid-2">
 <div class="stack-sm">{eyebrow("Propósito", True)}<h2 class="h3" id="h-prop">Transformar desafios de negócio em possibilidades por meio da tecnologia, construindo o futuro junto com as pessoas.</h2></div>
@@ -481,7 +481,7 @@ cont = f'''
 <section class="section--md" aria-labelledby="h1"><div class="container stack">
 {crumbs([("Home", "{R}"), ("Conteúdos", "")])}
 <div class="grid-split"><div class="stack">{eyebrow("Conteúdos")}<h1 class="h1" id="h1">A FSA não fala de tecnologia para parecer tecnológica.</h1></div>
-<p class="lead" style="align-self:end">Fala de tecnologia para ajudar alguém a enxergar melhor um problema, uma possibilidade ou o que vem depois. Os primeiros conteúdos estão em produção, com autoria e data.</p></div>
+<p class="lead">Fala de tecnologia para ajudar alguém a enxergar melhor um problema, uma possibilidade ou o que vem depois. Os primeiros conteúdos estão em produção, com autoria e data.</p></div>
 </div></section>
 <section class="section--md bg-sand100" aria-labelledby="h-temas"><div class="container stack-lg">
 <h2 class="h3" id="h-temas">Perguntas que vamos responder.</h2>

@@ -187,6 +187,18 @@ Regra: cada achado é tratado primeiro como problema de implementação. O Desig
 - Pendente: trocar pelos canais da FSA⁴Future (chip novo + WhatsApp Business e atendimento@) antes do go-live definitivo; o e-mail nominal só sai depois de todos os pontos migrarem (D8).
 - Status: Provisório.
 
+### QA-020 — Layout solto: título grande longe do texto, vazios grandes entre seções
+- Severidade: Visual (afeta leitura e conversão) · Gate: G1
+- Página / componente: topo das páginas internas (Desafios, Hub, Cases, Sobre, Conteúdos, frentes), faixa "Nem todo problema", CTA final, "Perguntas que a gente ajuda a responder", capacidades e prova da Home
+- Ambiente: captura da Cátia em 12/10/2026 (Chrome desktop) e Chromium 1440/1024/390
+- Esperado: título e texto que o explica lidos juntos; ritmo de rolagem contínuo.
+- Observado: título de 64 px numa coluna e o texto de 20 px noutra, empurrado para baixo (`align-self:end`), parecendo um bloco perdido; seções com 128 px de respiro e colunas vazias embaixo dos títulos; linhas da prova (+20 / NPS 70) em alturas diferentes; no celular, o ponto separador da prova sobrando no fim da linha.
+- Diagnóstico: implementação (composição em duas colunas com alinhamento pela base). O Design System não muda: tamanhos de fonte e cores iguais.
+- Correção aplicada: 12/10/2026 — `grid-split` vira uma coluna (texto logo abaixo do título, até 780 px); "Perguntas" com o título em cima e a lista em duas colunas; capacidades com o título em cima dos chips; prova alinhada pelo topo; respiro de seção 128→96 px (celular 72→56) e `section--md` 96→72 px (celular 48); prova em lista no celular, sem ponto. (`assets/css/site.css`, bloco `IMPL QA-020`; `tools/build_fsa4future.py`)
+- Evidência pós-correção: capturas 1440 e 390 de Home e Desafios; 22 páginas sem overflow e sem erro em 390/1024/1440.
+- Atenção: a captura da Cátia mostra um menu sem "Cases", diferente do repositório. A versão aberta por ela foi gerada em outro lugar e precisa ser regerada a partir deste gerador. O robô azul da captura não é do site (extensão do navegador).
+- Status: Corrigido – aguardando reteste da Cátia.
+
 ## Pendências abertas por gate
 
 | Gate | Item | Dono | Situação |

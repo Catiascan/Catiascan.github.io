@@ -1,6 +1,6 @@
 # FSA⁴Future · Fichas de intenção por URL (G3)
 
-Gerado por `tools/build_fsa4future.py` em 2026-10-06. Editar os dados no gerador, não aqui.
+Gerado por `tools/build_fsa4future.py` em 2026-10-12. Editar os dados no gerador, não aqui.
 
 Campos ainda pendentes por URL (preencher com a FSA): links internos de entrada e saída validados, conteúdo/evidência necessária, responsável e status.
 

@@ -394,3 +394,18 @@ dialog.f4-dialog::backdrop{background:var(--overlay);backdrop-filter:blur(2px)}
 /* IMPL QA-008: no celular o botão flutuante da FSiA não pode esconder o fim da página. */
 @media (max-width:560px){body{padding-bottom:84px}.fsia__launcher{font-size:14px}}
 .f4-badge{justify-self:start;align-self:flex-start;width:max-content;max-width:100%}
+/* IMPL QA-020 (12/10/2026): ritmo vertical. Título e texto ficam juntos, um embaixo do outro;
+   menos vazio entre seções; números da prova alinhados pelo topo; separadores da prova sem ponto solto no celular. */
+:root{--section-y:96px;--section-y-mobile:56px}
+.section--md{padding:72px 0}
+.grid-split{grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+.grid-split>*{max-width:780px}
+.stacked>.h2,.stacked>h2{max-width:780px}
+@media (min-width:861px){
+  .cols-1-12{grid-template-columns:minmax(0,1fr);gap:28px}
+  .cols-1-12>.h2{max-width:780px}
+  .cols-proof{align-items:start}
+  .stacked .list-check{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+}
+@media (max-width:860px){.section--md{padding:48px 0}}
+@media (max-width:560px){.proof{flex-direction:column;gap:4px}.proof>span[aria-hidden]{display:none}}
